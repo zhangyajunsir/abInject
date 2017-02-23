@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interfaces 
+	xmlns="http://www.w3school.com" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3school.com ../xsd/ibm_xml.xsd">
+	<!-- 别名映射 -->
+	<alias-mappings>
+		<!-- domain取值inner和global,inner仅在接口内有效，global在全局有效,在不设置domain时默认为inner -->
+	</alias-mappings>
+	<!-- 元信息池 -->
+	<metadatas-pool>
+		<variable-field name="cid" 		        alias="" encoding="GBK" min-len="0" max-len="12"  class="String" allow-null="false" desc="客户号"/>
+		<variable-field name="passwd1"   		alias="" encoding="GBK" min-len="0" max-len="60"  class="String" allow-null="false" desc="注册号码"/>
+		<variable-field name="passwd2"    		alias="" encoding="GBK" min-len="0" max-len="60"  class="String" allow-null="false" desc="单位名"/>
+		
+		<variable-field    name="cid_"      		alias="" encoding="GBK" min-len="0" max-len="20"  class="String" allow-null="true" desc=""/>
+	</metadatas-pool>
+	<interface name="00140000008207">
+		<request>
+			<mappings>
+				<!-- 取值映射 -->
+				<field name="cid" 	        		alias="cid" 	     		value="storeData.客户编号"/>
+				<field name="passwd1"       		alias="passwd1"    		value="storeData.sPwd1"/>
+				<field name="passwd2"        		alias="passwd2"     		value="storeData.sPwd2"/>
+			</mappings>
+			<service_header inline="headers/esbxml_service.xml"/>
+			<ext_attributes inline="headers/esbxml_extatts.xml"/>
+			<req_template>
+				<![CDATA[
+					<?xml version="1.0" encoding="UTF-8"?>
+					<Service>
+						${innerArea.service_header}
+						<Service_Body>
+							${innerArea.ext_attributes}
+							<request>
+								<cid>${innerArea.mappings.cid}</cid>
+								<passwd1>${innerArea.mappings.passwd1}</passwd1>
+								<passwd2>${innerArea.mappings.passwd2}</passwd2>
+							</request>
+						</Service_Body>
+					</Service>
+				]]>
+			</req_template>
+		</request>
+		<response>
+			<mappings>
+			<field name="cid"       		alias="cid_"    		value="storeData.cid"/>
+			</mappings>
+			<service        inline="headers/esbxml_service.xml"/>
+			<ext_attributes inline="headers/esbxml_extatts.xml"/>
+			<rsp_wrap_class alias="Map"/>
+		</response>
+	</interface>
+</interfaces>

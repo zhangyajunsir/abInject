@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interfaces 
+	xmlns="http://www.w3school.com" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3school.com ../xsd/ibm_xml.xsd">
+	<!-- 别名映射 -->
+	<alias-mappings>
+		<!-- domain取值inner和global,inner仅在接口内有效，global在全局有效,在不设置domain时默认为inner -->
+	</alias-mappings>
+	<!-- 元信息池 -->
+	<metadatas-pool>
+		<variable-field name="cid" 		        alias="" encoding="GBK" min-len="0" max-len="12"  class="String" allow-null="false" desc="客户号"/>
+		<variable-field name="regist_id"   		alias="" encoding="GBK" min-len="0" max-len="20"  class="String" allow-null="false" desc="注册号码"/>
+		<variable-field name="unitname"    		alias="" encoding="GBK" min-len="0" max-len="60"  class="String" allow-null="false" desc="单位名"/>
+		<variable-field name="country_tax" 		alias="" encoding="GBK" min-len="0" max-len="20"  class="String" allow-null="false" desc="国税税号"/>
+		<variable-field name="local_tax"   		alias="" encoding="GBK" min-len="0" max-len="20"  class="String" allow-null="false" desc="地税税号"/>
+		<variable-field name="basaccd"     		alias="" encoding="GBK" min-len="0" max-len="28"  class="String" allow-null="false" desc="基本存款账号"/>
+		<variable-field name="bank_name"   		alias="" encoding="GBK" min-len="0" max-len="9"   class="String" allow-null="false" desc="开户行号"/>
+		<variable-field name="agent"       		alias="" encoding="GBK" min-len="0" max-len="10"  class="String" allow-null="false" desc="法人代表"/>
+		<variable-field name="ic_type"     		alias="" encoding="GBK" min-len="0" max-len="1"   class="String" allow-null="false" desc="法人证件种类"/>
+		<variable-field name="ic_no"       		alias="" encoding="GBK" min-len="0" max-len="22"  class="String" allow-null="false" desc="法人身份证号"/>
+		<variable-field name="finacemas"   		alias="" encoding="GBK" min-len="0" max-len="10"  class="String" allow-null="true" desc="财务主管"/>
+		<variable-field name="mas_type"    		alias="" encoding="GBK" min-len="0" max-len="1"   class="String" allow-null="true" desc="主管证件种类"/>
+		<variable-field name="mas_no"      		alias="" encoding="GBK" min-len="0" max-len="22"  class="String" allow-null="true" desc="主管证件号码"/>
+		<variable-field name="address"     		alias="" encoding="GBK" min-len="0" max-len="60"  class="String" allow-null="true" desc="单位地址"/>
+		<variable-field name="postcode"    		alias="" encoding="GBK" min-len="0" max-len="6"   class="String" allow-null="true" desc="单位邮编"/>
+		<variable-field name="phone1"   	   	alias="" encoding="GBK" min-len="0" max-len="12"  class="String" allow-null="true" desc="办公电话"/>
+		<variable-field name="phone2"      		alias="" encoding="GBK" min-len="0" max-len="12"  class="String" allow-null="true" desc="财务电话"/>
+		<variable-field name="fax"   		    alias="" encoding="GBK" min-len="0" max-len="20"  class="String" allow-null="true" desc="传真"/>
+		<variable-field name="email"   		    alias="" encoding="GBK" min-len="0" max-len="20"  class="String" allow-null="true" desc="Email"/>
+		<variable-field name="type"   	     	alias="" encoding="GBK" min-len="0" max-len="1"   class="String" allow-null="true" desc="性质"/>
+		<variable-field name="remark" 		    alias="" encoding="GBK" min-len="0" max-len="60"  class="String" allow-null="true" desc="备注"/>
+		<variable-field name="status" 		    alias="" encoding="GBK" min-len="0" max-len="1"   class="String" allow-null="true" desc="状态"/>
+		<variable-field name="reg_telle" 	  	alias="" encoding="GBK" min-len="0" max-len="12"  class="String" allow-null="true" desc="开户柜员"/>
+		<variable-field name="modi_teller" 		alias="" encoding="GBK" min-len="0" max-len="12"  class="String" allow-null="true" desc="修改柜员"/>
+		<variable-field name="reg_brch" 	   	alias="" encoding="GBK" min-len="0" max-len="12"  class="String" allow-null="true" desc="柜员号"/>
+		
+		<variable-field    name="cid_"      		alias="" encoding="GBK" min-len="0" max-len="20"  class="String" allow-null="true" desc=""/>
+	</metadatas-pool>
+	<interface name="00140000008201">
+		<request>
+			<mappings>
+				<!-- 取值映射 -->
+				<field name="cid" 	        		alias="cid" 	     		value="uiData['text_客户号|text']"/>
+				<field name="regist_id"       		alias="regist_id"    		value="uiData['text_注册号码|text']"/>
+				<field name="unitname"        		alias="unitname"     		value="uiData['text_单位名|text']"/>
+				<field name="country_tax"     		alias="country_tax"  		value="uiData['text_国税税号|text']"/>
+				<field name="local_tax"       		alias="local_tax"    		value="uiData['text_地税税号|text']"/>
+				<field name="basaccd"         		alias="basaccd"      		value="uiData['text_基本存款账号|text']"/>
+				<field name="bank_name"       		alias="bank_name"    		value="uiData['text_开户行号|text']"/>
+				<field name="agent"           		alias="agent"        		value="uiData['text_法人代表|text']"/>
+				<field name="ic_type"         		alias="ic_type"      		value="uiData['combo_法人证件种类|prefix']"/>
+				<field name="ic_no"           		alias="ic_no"        		value="uiData['text_法人身份证号|text']"/>
+				<field name="finacemas"       		alias="finacemas"    		value="uiData['text_财务主管|text']"/>
+				<field name="mas_type"        		alias="mas_type"     		value="uiData['combo_主管证件种类|prefix']"/>
+				<field name="mas_no"          		alias="mas_no"       		value="uiData['text_主管证件号码|text']"/>
+				<field name="address"         		alias="address"      		value="uiData['text_单位地址|text']"/>
+				<field name="postcode"        		alias="postcode"     		value="uiData['text_单位邮编|text']"/>
+				<field name="phone1"   	      		alias="phone1"   	   		value="uiData['text_办公电话|text']"/>
+				<field name="phone2"          		alias="phone2"       		value="uiData['text_财务电话|text']"/>
+				<field name="fax"   	      		alias="fax"   		   		value="uiData['text_传真|text']"/>
+				<field name="email"   	    		alias="email"   	 		value="uiData['text_Email|text']"/>
+				<field name="type"          		alias="type"   	     		value="uiData['combo_性质|prefix']"/>
+				<field name="remark" 	      		alias="remark" 		   		value="uiData['text_备注|text']"/>
+				<field name="status" 	      		alias="status" 		   		value="uiData['combo_状态|prefix']"/>
+				<field name="reg_telle"     		alias="reg_telle" 	 		value="uiData['text_开户柜员|text']"/>
+				<field name="modi_teller"     		alias="modi_teller"  		value="uiData['text_修改柜员|text']"/>
+				<field name="reg_brch" 	      		alias="reg_brch" 	   		value="tellerInfo.G_QBR"/>
+			</mappings>
+			<service_header inline="headers/esbxml_service.xml"/>
+			<ext_attributes inline="headers/esbxml_extatts.xml"/>
+			<req_template>
+				<![CDATA[
+					<?xml version="1.0" encoding="UTF-8"?>
+					<Service>
+						${innerArea.service_header}
+						<Service_Body>
+							${innerArea.ext_attributes}
+							<request>
+								<cid>${innerArea.mappings.cid}</cid>
+								<regist_id>${innerArea.mappings.regist_id}</regist_id>
+								<unitname>${innerArea.mappings.unitname}</unitname>
+								<country_tax>${innerArea.mappings.country_tax}</country_tax>
+								<local_tax>${innerArea.mappings.local_tax}</local_tax>
+								<basaccd>${innerArea.mappings.basaccd}</basaccd>
+								<bank_name>${innerArea.mappings.bank_name}</bank_name>
+								<agent>${innerArea.mappings.agent}</agent>
+								<ic_type>${innerArea.mappings.ic_type}</ic_type>
+								<ic_no>${innerArea.mappings.ic_no}</ic_no>
+								<finacemas>${innerArea.mappings.finacemas}</finacemas>
+								<mas_type>${innerArea.mappings.mas_type}</mas_type>
+								<mas_no>${innerArea.mappings.mas_no}</mas_no>
+								<address>${innerArea.mappings.address}</address>
+								<postcode>${innerArea.mappings.postcode}</postcode>
+								<phone1>${innerArea.mappings.phone1}</phone1>
+								<phone2>${innerArea.mappings.phone2}</phone2>
+								<fax>${innerArea.mappings.fax}</fax>
+								<email>${innerArea.mappings.email}</email>
+								<type>${innerArea.mappings.type}</type>
+								<remark>${innerArea.mappings.remark}</remark>
+								<status>${innerArea.mappings.status}</status>
+								<reg_telle>${innerArea.mappings.reg_telle}</reg_telle>
+								<modi_teller>${innerArea.mappings.modi_teller}</modi_teller>
+								<reg_brch>${innerArea.mappings.reg_brch}</reg_brch>
+							</request>
+						</Service_Body>
+					</Service>
+				]]>
+			</req_template>
+		</request>
+		<response>
+			<mappings>
+			<field name="cid"       		alias="cid_"    		value="storeData.cid"/>
+			</mappings>
+			<service        inline="headers/esbxml_service.xml"/>
+			<ext_attributes inline="headers/esbxml_extatts.xml"/>
+			<rsp_wrap_class alias="Map"/>
+		</response>
+	</interface>
+</interfaces>

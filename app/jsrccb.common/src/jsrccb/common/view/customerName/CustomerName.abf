@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="GBK"?>
+<content>
+    <entry key="layout#layout" value="xy" type="String"/>
+    <entry key="constraints#xy_location" value="0,0" type="String"/>
+    <entry key="constraints#xy_size" value="775,568" type="String"/>
+    <entry key="enable" value="true" type="Boolean"/>
+    <entry key="visible" value="true" type="Boolean"/>
+    <entry key="title" value="" type="String"/>
+    <entry key="parent_trade" value="" type="String"/>
+    <entry key="help" value="查询客户姓名" type="String"/>
+    <entry key="dictionary_key" value="" type="String"/>
+    <entry key="methods"
+        value="button_submit_OnClick,button_exit_OnClick,table_客户_OnRowDoubleClick" type="String"/>
+    <bean feature="Table">
+        <entry key="constraints#xy_location" value="0,10" type="String"/>
+        <entry key="constraints#xy_size" value="725,525" type="String"/>
+        <entry key="id" value="table_客户" type="String"/>
+        <entry key="add_row_number" value="true" type="Boolean"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <bean feature="TableItem">
+            <entry key="constraints#table_item_width" value="345" type="Integer"/>
+            <entry key="title" value="客户名称" type="String"/>
+            <entry key="dictionary_key" value="" type="String"/>
+        </bean>
+        <bean feature="TableItem">
+            <entry key="constraints#table_item_width" value="203" type="Integer"/>
+            <entry key="title" value="客户编号" type="String"/>
+            <entry key="editor" value="null" type="String"/>
+            <entry key="dictionary_key" value="" type="String"/>
+        </bean>
+    </bean>
+</content>

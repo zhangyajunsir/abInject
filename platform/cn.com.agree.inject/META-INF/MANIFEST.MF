@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Agree Inject Plug_in
+Bundle-SymbolicName: cn.com.agree.inject;singleton:=true
+Bundle-Version: 3.7.0.v201601290944
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.7.0",
+ javax.inject;bundle-version="1.0.0",
+ org.aopalliance;bundle-version="1.0.0",
+ javax.validation;bundle-version="1.0.0",
+ com.google.common;bundle-version="16.0.1",
+ com.google.inject;bundle-version="4.0.0",
+ com.fasterxml.jackson;bundle-version="2.6.3",
+ org.slf4j;bundle-version="1.7.5",
+ cn.com.agree.ab.resource;bundle-version="3.3.0",
+ cn.com.agree.ab.prerequisite;bundle-version="3.4.0"
+Bundle-ClassPath: .
+Bundle-Activator: cn.com.agree.inject.InjectPlugin
+Export-Package: cn.com.agree.inject,
+ cn.com.agree.inject.annotations
+Bundle-ActivationPolicy: lazy

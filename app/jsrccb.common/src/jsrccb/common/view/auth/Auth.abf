@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="GBK"?>
+<content>
+    <entry key="layout#layout" value="xy" type="String"/>
+    <entry key="constraints#xy_location" value="0,0" type="String"/>
+    <entry key="constraints#xy_size" value="615,277" type="String"/>
+    <entry key="enable" value="true" type="Boolean"/>
+    <entry key="visible" value="true" type="Boolean"/>
+    <entry key="scrollable" value="false" type="Boolean"/>
+    <entry key="title" value="" type="String"/>
+    <entry key="tooltip" value="" type="String"/>
+    <entry key="parent_trade" value="" type="String"/>
+    <entry key="help" value="" type="String"/>
+    <entry key="dictionary_key" value="" type="String"/>
+    <entry key="methods"
+        value="button_submit_OnClick,button_exit_OnClick,combo_auth_way_OnBlur,text_auth_teller_a_OnFocus,text_auth_teller_a_OnBlur,text_auth_teller_a_pwd_OnBlur,text_auth_teller_b_OnFocus,text_auth_teller_b_OnBlur,text_auth_teller_b_pwd_OnBlur" type="String"/>
+    <bean feature="Label">
+        <entry key="constraints#xy_location" value="5,20" type="String"/>
+        <entry key="constraints#xy_size" value="300,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="label_level" type="String"/>
+        <entry key="text" value="" type="String"/>
+        <entry key="border" value="1" type="Integer"/>
+    </bean>
+    <bean feature="Label">
+        <entry key="constraints#xy_location" value="5,55" type="String"/>
+        <entry key="constraints#xy_size" value="75,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="label_auth_way" type="String"/>
+        <entry key="text" value="授权种类" type="String"/>
+        <entry key="border" value="1" type="Integer"/>
+    </bean>
+    <bean feature="Combo">
+        <entry key="constraints#xy_location" value="100,55" type="String"/>
+        <entry key="constraints#xy_size" value="105,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="combo_auth_way" type="String"/>
+        <entry key="combo_items" value="0 本终端,1 跨终端" type="String[]"/>
+        <entry key="enable" value="true" type="Boolean"/>
+        <entry key="visible" value="true" type="Boolean"/>
+        <entry key="requisite" value="true" type="Boolean"/>
+        <entry key="combo_items_para_file" value="" type="String"/>
+        <entry key="combo_items_list_name" value="" type="String"/>
+        <entry key="help" value="授权种类" type="String"/>
+        <entry key="relations" value="" type="String"/>
+        <entry key="border" value="1" type="Integer"/>
+    </bean>
+    <bean feature="List">
+        <entry key="constraints#xy_location" value="225,55" type="String"/>
+        <entry key="constraints#xy_size" value="360,110" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="list_auth_message" type="String"/>
+        <entry key="enable" value="false" type="Boolean"/>
+    </bean>
+    <bean feature="Label">
+        <entry key="constraints#xy_location" value="5,90" type="String"/>
+        <entry key="constraints#xy_size" value="75,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="label_auth_teller_a" type="String"/>
+        <entry key="text" value="A级主管" type="String"/>
+        <entry key="enable" value="true" type="Boolean"/>
+        <entry key="visible" value="true" type="Boolean"/>
+        <entry key="border" value="1" type="Integer"/>
+    </bean>
+    <bean feature="Text">
+        <entry key="constraints#xy_location" value="100,90" type="String"/>
+        <entry key="constraints#xy_size" value="105,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="text_auth_teller_a" type="String"/>
+        <entry key="text" value="" type="String"/>
+        <entry key="enable" value="true" type="Boolean"/>
+        <entry key="visible" value="true" type="Boolean"/>
+        <entry key="password" value="false" type="Boolean"/>
+        <entry key="requisite" value="true" type="Boolean"/>
+        <entry key="editable" value="true" type="Boolean"/>
+        <entry key="picture" value="-12&quot;X&quot;" type="String"/>
+        <entry key="help" value="A级主管" type="String"/>
+        <entry key="border" value="1" type="Integer"/>
+    </bean>
+    <bean feature="Label">
+        <entry key="constraints#xy_location" value="5,125" type="String"/>
+        <entry key="constraints#xy_size" value="75,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="label_auth_teller_a_pwd" type="String"/>
+        <entry key="text" value="密码" type="String"/>
+        <entry key="enable" value="true" type="Boolean"/>
+        <entry key="visible" value="true" type="Boolean"/>
+        <entry key="border" value="1" type="Integer"/>
+    </bean>
+    <bean feature="Text">
+        <entry key="constraints#xy_location" value="100,125" type="String"/>
+        <entry key="constraints#xy_size" value="105,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="text_auth_teller_a_pwd" type="String"/>
+        <entry key="text" value="" type="String"/>
+        <entry key="enable" value="true" type="Boolean"/>
+        <entry key="visible" value="true" type="Boolean"/>
+        <entry key="password" value="true" type="Boolean"/>
+        <entry key="requisite" value="true" type="Boolean"/>
+        <entry key="editable" value="true" type="Boolean"/>
+        <entry key="picture" value="-6&quot;X&quot;" type="String"/>
+        <entry key="help" value="A级主管密码" type="String"/>
+        <entry key="border" value="1" type="Integer"/>
+    </bean>
+    <bean feature="Label">
+        <entry key="constraints#xy_location" value="5,160" type="String"/>
+        <entry key="constraints#xy_size" value="75,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="label_auth_teller_b" type="String"/>
+        <entry key="text" value="B级主管" type="String"/>
+        <entry key="enable" value="true" type="Boolean"/>
+        <entry key="visible" value="true" type="Boolean"/>
+        <entry key="border" value="1" type="Integer"/>
+    </bean>
+    <bean feature="Text">
+        <entry key="constraints#xy_location" value="100,160" type="String"/>
+        <entry key="constraints#xy_size" value="105,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="text_auth_teller_b" type="String"/>
+        <entry key="text" value="" type="String"/>
+        <entry key="enable" value="true" type="Boolean"/>
+        <entry key="visible" value="true" type="Boolean"/>
+        <entry key="requisite" value="true" type="Boolean"/>
+        <entry key="editable" value="true" type="Boolean"/>
+        <entry key="picture" value="-12&quot;X&quot;" type="String"/>
+        <entry key="help" value="B级主管" type="String"/>
+        <entry key="border" value="1" type="Integer"/>
+    </bean>
+    <bean feature="Label">
+        <entry key="constraints#xy_location" value="5,195" type="String"/>
+        <entry key="constraints#xy_size" value="75,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="label_auth_teller_b_pwd" type="String"/>
+        <entry key="text" value="密码" type="String"/>
+        <entry key="enable" value="true" type="Boolean"/>
+        <entry key="visible" value="true" type="Boolean"/>
+        <entry key="border" value="1" type="Integer"/>
+    </bean>
+    <bean feature="Text">
+        <entry key="constraints#xy_location" value="100,195" type="String"/>
+        <entry key="constraints#xy_size" value="105,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="text_auth_teller_b_pwd" type="String"/>
+        <entry key="text" value="" type="String"/>
+        <entry key="enable" value="true" type="Boolean"/>
+        <entry key="visible" value="true" type="Boolean"/>
+        <entry key="password" value="true" type="Boolean"/>
+        <entry key="requisite" value="true" type="Boolean"/>
+        <entry key="editable" value="true" type="Boolean"/>
+        <entry key="picture" value="-6&quot;X&quot;" type="String"/>
+        <entry key="help" value="B级主管密码" type="String"/>
+        <entry key="border" value="1" type="Integer"/>
+    </bean>
+    <bean feature="Button">
+        <entry key="constraints#xy_location" value="280,210" type="String"/>
+        <entry key="constraints#xy_size" value="70,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="button_submit" type="String"/>
+        <entry key="text" value="确定" type="String"/>
+        <entry key="enable" value="true" type="Boolean"/>
+        <entry key="visible" value="true" type="Boolean"/>
+        <entry key="help" value="" type="String"/>
+        <entry key="border" value="1" type="Integer"/>
+    </bean>
+    <bean feature="Button">
+        <entry key="constraints#xy_location" value="450,210" type="String"/>
+        <entry key="constraints#xy_size" value="70,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="button_exit" type="String"/>
+        <entry key="text" value="取消" type="String"/>
+        <entry key="enable" value="true" type="Boolean"/>
+        <entry key="visible" value="true" type="Boolean"/>
+        <entry key="help" value="" type="String"/>
+        <entry key="border" value="1" type="Integer"/>
+    </bean>
+</content>

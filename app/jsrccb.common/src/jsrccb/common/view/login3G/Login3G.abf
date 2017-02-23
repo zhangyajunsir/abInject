@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content>
+    <entry key="layout#layout" value="xy"/>
+    <entry key="constraints#xy_location" value="0,0"/>
+    <entry key="constraints#xy_size" value="640,480"/>
+    <entry key="enable" value="true"/>
+    <entry key="visible" value="true"/>
+    <entry key="title" value=""/>
+    <entry key="help" value="" type="String"/>
+    <entry key="parent_trade" value=""/>
+</content>

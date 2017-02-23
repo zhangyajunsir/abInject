@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interfaces 
+	xmlns="http://www.w3school.com" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3school.com ../../xsd/ibm_cbod_header.xsd">
+	<!-- 别名映射 -->
+	<alias-mappings>
+		<!-- domain取值inner和global,inner仅在接口内有效，global在全局有效,在不设置domain时默认为inner -->
+		<mapping alias="String"         real="java.lang.String"              domain="global"/>
+		<mapping alias="Date"           real="java.util.Date"                domain="global"/>
+		<mapping alias="BigDecimal"     real="java.math.BigDecimal"          domain="global"/>
+		<mapping alias="Integer"        real="java.lang.Integer"             domain="global"/>
+		<mapping alias="Byte"           real="java.lang.Byte"                domain="global"/>
+		<mapping alias="ByteBuffer"     real="java.nio.ByteBuffer"           domain="global"/>
+		<mapping alias="StringArray"    real="[Ljava.lang.String"            domain="global"/>
+		<mapping alias="ObjectArray"    real="[Ljava.lang.Object"            domain="global"/>
+		<mapping alias="List"           real="java.util.ArrayList"           domain="global"/>
+		<mapping alias="Map"            real="java.util.HashMap"             domain="global"/>
+		<mapping alias="PagingDM"       real="jsrccb.common.dm.PageDM"/>
+		<mapping alias="ChargeDM"       real="jsrccb.common.dm.ChargeDM"/>
+		<mapping alias="AuthDM"         real="jsrccb.common.dm.AuthDM"/>
+	</alias-mappings>
+	<!-- 元信息池 -->
+	<metadatas-pool>
+		<fixed-field name="INM_SPV_A"          encoding="EBCDIC"    len="12"  fill-style="right" class="String"     alias="" desc="授权A级主管代号"/>
+		<fixed-field name="INM_SPV_B"          encoding="EBCDIC"    len="12"  fill-style="right" class="String"     alias="" desc="授权B级主管代号"/>
+		<fixed-field name="INM_LCL_OR_RSN"     encoding="EBCDIC"    len="20"  fill-style="right" class="String"     alias="" desc="LOCAL授权理由"/>
+		<fixed-field name="INM_HST_OR_RSN"     encoding="EBCDIC"    len="20"  fill-style="right" class="String"     alias="" desc="HOST授权理由"/>
+		<fixed-field name="INM_VERIFY_TELLER"  encoding="EBCDIC"    len="12"  fill-style="right" class="String"     alias="" desc="复核柜员"/>
+		<fixed-field name="INM_OFFLINE_TX_NO"  encoding="EBCDIC"    len="19"  fill-style="right" class="String"     alias="" desc="端末系统流水编号"/>
+		<fixed-field name="INM_PAGE_STA_KEY"   encoding="EBCDIC"    len="64"  fill-style="right" class="String"     alias="" desc="上页第一笔资料的KEY值"/>
+		<fixed-field name="INM_PAGE_END_KEY"   encoding="EBCDIC"    len="64"  fill-style="right" class="String"     alias="" desc="该页最后一笔资料的KEY值"/>
+		<fixed-field name="INM_PAGE_UP_DOWN"   encoding="EBCDIC"    len="1"   fill-style="right" class="String"     alias="" desc="跳页指示"/>
+		<fixed-field name="INM_TIMESTAMP"      encoding="ISO8859-1" len="8"   fill-style="right" class="ByteBuffer" alias="" desc="TIMESTAMP"/>
+		<fixed-field name="INM_JOB_ID"         encoding="EBCDIC"    len="4"   fill-style="right" class="String"     alias="" desc="整批输入的作业代号"/>
+		<fixed-field name="INM_BATCH_NO"       encoding="EBCDIC"    len="4"   fill-style="left"  class="Integer"    alias="" desc="整批输入批号"/>
+		<fixed-field name="INM_PSN"            encoding="EBCDIC"    len="7"   fill-style="left"  class="Integer"    alias="" desc="处理序号"/>
+		<fixed-field name="INM_UPD_INT"        encoding="EBCDIC"    len="1"   fill-style="right" class="String"     alias="" desc="更新准备"/>
+		<fixed-field name="INM_SPV_PWD"        encoding="EBCDIC"    len="32"  fill-style="right" class="String"     alias="" desc="AB级主管PINBlock"/>
+		<fixed-field name="INM_SEC_OFFSET"     encoding="ISO8859-1" len="2"   fill-style="left"  class="Integer"    alias="" desc="加解密字段位移"     value-mode="inner"/>
+		<fixed-field name="INM_SEC_LENGTH"     encoding="ISO8859-1" len="2"   fill-style="left"  class="Integer"    alias="" desc="加解密字段长度"     value-mode="inner"/>
+		<fixed-field name="INM_DVV_VALUE"      encoding="EBCDIC"    len="3"   fill-style="right" class="String"     alias="" desc=""/>
+		<fixed-field name="INM_IBS_CLEAR_DATE" encoding="EBCDIC"    len="8"   fill-style="right" class="String"     alias="" desc="外系统对帐日期"/>
+		<fixed-field name="INM_N_MAC_OFFSET"   encoding="ISO8859-1" len="2"   fill-style="left"  class="Integer"    alias="" desc="压码资料起始位置"   value-mode="inner"/>
+		<fixed-field name="INM_N_MAC_LL"       encoding="ISO8859-1" len="2"   fill-style="left"  class="Integer"    alias="" desc="压码资料长度"       value-mode="inner"/>
+		<fixed-field name="INM_N_MAC_VALUE"    encoding="EBCDIC"    len="16"  fill-style="right" class="String"     alias="" desc="压码值"             value-mode="inner"/>
+		<fixed-field name="INM_AUT_REQ_NO"     encoding="EBCDIC"    len="24"  fill-style="right" class="String"     alias="" desc="跨机构授权复核处理号"/>
+		<fixed-field name="INM_CONFIRM_FLG"    encoding="EBCDIC"    len="1"   fill-style="right" class="String"     alias="" desc="预警功能的柜员确认标志"/>
+		<fixed-field name="INM_SVR_TRIAL_FLG"  encoding="EBCDIC"    len="1"   fill-style="right" class="String"     alias="" desc=""/>
+		<fixed-field name="INM_CHRG_MOD"       encoding="EBCDIC"    len="1"   fill-style="right" class="String"     alias="" desc=""/>
+		<fixed-field name="INM_CASH_TRN_FLG"   encoding="EBCDIC"    len="1"   fill-style="right" class="String"     alias="" desc=""/>
+		<fixed-field name="INM_CHRG_ACCT_NO"   encoding="EBCDIC"    len="28"  fill-style="right" class="String"     alias="" desc=""/>
+		<fixed-field name="INM_OVERRID_REASON" encoding="EBCDIC"    len="42"  fill-style="right" class="String"     alias="" desc=""/>
+		<fixed-field name="INM_CASH_PROJ_NO"   encoding="EBCDIC"    len="8"   fill-style="right" class="String"     alias="" desc=""/>
+		<fixed-field name="INM_FEECOD_COUNTS"  encoding="EBCDIC"    len="1"   fill-style="left"  class="String"     alias="" desc="" fill-char="0"/>
+		<fixed-field name="INM_CHRG_COD"       encoding="EBCDIC"    len="8"   fill-style="right" class="String"     alias="" desc=""/>
+		<fixed-field name="INM_DSCT_RAT"       encoding="EBCDIC"    len="15"  fill-style="left"  class="String"     alias="" desc="" fill-char="0" value-mode="default" value="0"/>
+		<fixed-field name="INM_CUST_CHRGE_FEE" encoding="EBCDIC"    len="15"  fill-style="left"  class="String"     alias="" desc="" fill-char="0"/>
+		<fixed-field name="INM_ENC_DEV_ID"     encoding="EBCDIC"    len="16"  fill-style="right" class="String"     alias="" desc=""/>
+
+		<fixed-field name="OPM_TX_LOG_NO"      encoding="EBCDIC"    len="19"  fill-style="right" class="String"     alias="" desc="TXLOG编号"/>
+		<fixed-field name="OPM_TIMESTAMP"      encoding="ISO8859-1" len="8"   fill-style="left"  class="ByteBuffer" alias="" desc="TIMESTAMP"/>
+		<fixed-field name="OPM_MSG_SEQ"        encoding="ISO8859-1" len="2"   fill-style="left"  class="Integer"    alias="" desc="输出讯息序号"/>
+		<fixed-field name="OPM_MSG_CODE"       encoding="EBCDIC"    len="5"   fill-style="right" class="String"     alias="" desc="输出讯息码"/>
+		<fixed-field name="OPM_MSG_TXT"        encoding="EBCDIC"    len="42"  fill-style="right" class="String"     alias="" desc="输出讯息应用内容"/>
+		<fixed-field name="OPM_MSG_DB_TXT"     encoding="EBCDIC"    len="35"  fill-style="right" class="String"     alias="" desc="输出讯息CMMSGMSG中的内容"/>
+		<fixed-field name="OPM_PAGE_STA_KEY"   encoding="EBCDIC"    len="64"  fill-style="right" class="String"     alias="" desc="该页第一笔资料KEY值"/>
+		<fixed-field name="OPM_PAGE_END_KEY"   encoding="EBCDIC"    len="64"  fill-style="right" class="String"     alias="" desc="该页最后一笔资料KEY值"/>
+		<fixed-field name="OPM_PAGE_NO_DATA"   encoding="EBCDIC"    len="1"   fill-style="right" class="String"     alias="" desc="是否最后一笔资料"/>
+		<fixed-field name="OPM_PSN"            encoding="ISO8859-1" len="7"   fill-style="left"  class="Integer"    alias="" desc="处理序号"/>
+		<fixed-field name="OPM_TRIG_TX_ID"     encoding="EBCDIC"    len="9"   fill-style="right" class="String"     alias="" desc="启动下一交易代号"/>
+		<fixed-field name="OPM_AUT_REQ_NO"     encoding="EBCDIC"    len="24"  fill-style="right" class="String"     alias="" desc="跨机构授权复核处理号"/>
+		<fixed-field name="OPM_AUT_TYP"        encoding="EBCDIC"    len="2"   fill-style="right" class="String"     alias="" desc="跨机构授权复核处理类型"/>
+		<fixed-field name="OPM_AUT_FIX_BRH"    encoding="EBCDIC"    len="9"   fill-style="right" class="String"     alias="" desc="跨机构授权复核处理机构"/>
+	</metadatas-pool>
+	<interface name="optl">
+		<request>
+			<field  name="INM_SPV_A"            alias="INM_SPV_A"                 value="context.authDM.(#this == null ? null : #this.authTellerA)"/>
+			<field  name="INM_SPV_B"            alias="INM_SPV_B"                 value="context.authDM.(#this == null ? null : #this.authTellerB)"/>
+			<field  name="INM_LCL_OR_RSN"       alias="INM_LCL_OR_RSN"            value="context.authDM.(#this == null ? null : #this.reason.(#this == null || #this.size == 0 ? null : #this.get(0)))"/>
+			<field  name="INM_HST_OR_RSN"       alias="INM_HST_OR_RSN"            value="context.authDM.(#this == null ? null : #this.reason.(#this == null || #this.size == 0 ? null : #this.get(0)))"/>
+			<field  name="INM_VERIFY_TELLER"    alias="INM_VERIFY_TELLER"         value="context.reviewDM.(#this == null ? null : #this.verifyTeller)"/>
+			<field  name="INM_OFFLINE_TX_NO"    alias="INM_OFFLINE_TX_NO"         value="innerArea.OFFLINE_TX_NO"/>
+			<object name="INM_PAGE_CTL"         alias=""            desc="翻页对象"        type="bean"      wrap-class="Map"     value="context.pagingDM.(#this == null ? null : #this.pageContext)">
+				<field name="staKey"            alias="INM_PAGE_STA_KEY"/>
+				<field name="endKey"            alias="INM_PAGE_END_KEY"/>
+				<field name="action"            alias="INM_PAGE_UP_DOWN"/>
+			</object>
+			<field  name="INM_TIMESTAMP"        alias="INM_TIMESTAMP">
+				<mapping express-id="0" trade-code="21114" value="tempArea.TIMESTAMP"/>
+				<mapping express-id="0" trade-code="21302" value="tempArea.TIMESTAMP"/>
+			</field>
+			<field  name="INM_JOB_ID"           alias="INM_JOB_ID"/> 
+			<field  name="INM_BATCH_NO"         alias="INM_BATCH_NO"/> 
+			<field  name="INM_PSN"              alias="INM_PSN"/> 
+			<field  name="INM_UPD_INT"          alias="INM_UPD_INT">
+				<mapping express-id="0" trade-code="21201" value="tempArea.UPD_INT"/>
+				<mapping express-id="0" trade-code="21302" value="tempArea.UPD_INT"/>
+				<mapping express-id="0" trade-code="50702" value="tempArea.UPD_INT"/>
+			</field>
+			<field  name="INM_SPV_PWD"          alias="INM_SPV_PWD"               value="innerArea.SPV_PWD"/>
+			<fixed-field name="INM_SEC_CTL"     encoding="ISO8859-1"   len="16"   fill-style="left"  class="Integer"    alias="" desc="4组账密位移" value-mode="inner"/>
+			<field  name="INM_DVV_VALUE"        alias="INM_DVV_VALUE"/>
+			<field  name="INM_IBS_CLEAR_DATE"   alias="INM_IBS_CLEAR_DATE"/>
+			<field  name="INM_N_MAC_OFFSET"     alias="INM_N_MAC_OFFSET"/>
+			<field  name="INM_N_MAC_LL"         alias="INM_N_MAC_LL"/>
+			<field  name="INM_N_MAC_VALUE"      alias="INM_N_MAC_VALUE"/>
+			<field  name="INM_AUT_REQ_NO"       alias="INM_AUT_REQ_NO"            value="innerArea.AUT_REQ_NO">
+				<mapping express-id="0" trade-code="32001" value="tempArea.AUT_REQ_NO"/>
+				<mapping express-id="0" trade-code="60804" value="tempArea.AUT_REQ_NO"/>
+			</field>
+			<field  name="INM_CONFIRM_FLG"      alias="INM_CONFIRM_FLG"           value="tempArea.CONFIRM_FLG"/> 
+			<field  name="INM_SVR_TRIAL_FLG"    alias="INM_SVR_TRIAL_FLG"         value="innerArea.SVR_TRIAL_FLG">
+				<mapping express-id="0" trade-code="30305" value="tempArea.SVR_TRIAL_FLG"/>
+				<mapping express-id="0" trade-code="32001" value="tempArea.SVR_TRIAL_FLG"/>
+			</field>
+			<object name="INM-FEE-HEAD"         alias=""            desc="收费头信息"      type="bean"      wrap-class="ChargeDM"     value="context.chargeDM">
+				<field name="chrgMod"           alias="INM_CHRG_MOD"/>
+				<field name="cashTrnFlg"        alias="INM_CASH_TRN_FLG"/>
+				<field name="chrgAcctNo"        alias="INM_CHRG_ACCT_NO"/>
+				<field name="overridReason"     alias="INM_OVERRID_REASON"/>
+				<field name="cashProjNo"        alias="INM_CASH_PROJ_NO"/>
+				<field name="feecodCounts"      alias="INM_FEECOD_COUNTS"/>
+			</object>
+			<object name="INM-FEE-GRP-INFO1"    alias=""            desc="收费信息1"       type="bean"     wrap-class="ChargeDM"     value="">
+				<field name="chrgCod"           alias="INM_CHRG_COD"          value="context.chargeDM.(#this == null ? null : #this.feeGrpInfo.(#this == null || #this.size lt 1 ? null : #this.get(0).chrgCod))"/>
+				<field name="dsctRat"           alias="INM_DSCT_RAT"          value="context.chargeDM.(#this == null ? null : #this.feeGrpInfo.(#this == null || #this.size lt 1 ? null : #this.get(0).dsctRat))"/>
+				<field name="custChrgeFee"      alias="INM_CUST_CHRGE_FEE"    value="context.chargeDM.(#this == null ? null : #this.feeGrpInfo.(#this == null || #this.size lt 1 ? null : #this.get(0).custChrgeFee))"/>
+			</object>
+			<object name="INM-FEE-GRP-INFO2"    alias=""            desc="收费信息2"       type="bean"     wrap-class="ChargeDM"     value="">
+				<field name="chrgCod"           alias="INM_CHRG_COD"          value="context.chargeDM.(#this == null ? null : #this.feeGrpInfo.(#this == null || #this.size lt 2 ? null : #this.get(1).chrgCod))"/>
+				<field name="dsctRat"           alias="INM_DSCT_RAT"          value="context.chargeDM.(#this == null ? null : #this.feeGrpInfo.(#this == null || #this.size lt 2 ? null : #this.get(1).dsctRat))"/>
+				<field name="custChrgeFee"      alias="INM_CUST_CHRGE_FEE"    value="context.chargeDM.(#this == null ? null : #this.feeGrpInfo.(#this == null || #this.size lt 2 ? null : #this.get(1).custChrgeFee))"/>
+			</object>
+			<object name="INM-FEE-GRP-INFO3"    alias=""            desc="收费信息3"       type="bean"     wrap-class="ChargeDM"     value="">
+				<field name="chrgCod"           alias="INM_CHRG_COD"          value="context.chargeDM.(#this == null ? null : #this.feeGrpInfo.(#this == null || #this.size lt 3 ? null : #this.get(2).chrgCod))"/>
+				<field name="dsctRat"           alias="INM_DSCT_RAT"          value="context.chargeDM.(#this == null ? null : #this.feeGrpInfo.(#this == null || #this.size lt 3 ? null : #this.get(2).dsctRat))"/>
+				<field name="custChrgeFee"      alias="INM_CUST_CHRGE_FEE"    value="context.chargeDM.(#this == null ? null : #this.feeGrpInfo.(#this == null || #this.size lt 3 ? null : #this.get(2).custChrgeFee))"/>
+			</object>
+			<object name="INM-FEE-GRP-INFO4"    alias=""            desc="收费信息4"       type="bean"     wrap-class="ChargeDM"     value="">
+				<field name="chrgCod"           alias="INM_CHRG_COD"          value="context.chargeDM.(#this == null ? null : #this.feeGrpInfo.(#this == null || #this.size lt 4 ? null : #this.get(3).chrgCod))"/>
+				<field name="dsctRat"           alias="INM_DSCT_RAT"          value="context.chargeDM.(#this == null ? null : #this.feeGrpInfo.(#this == null || #this.size lt 4 ? null : #this.get(3).dsctRat))"/>
+				<field name="custChrgeFee"      alias="INM_CUST_CHRGE_FEE"    value="context.chargeDM.(#this == null ? null : #this.feeGrpInfo.(#this == null || #this.size lt 4 ? null : #this.get(3).custChrgeFee))"/>
+			</object>
+			<object name="INM-FEE-GRP-INFO5"    alias=""            desc="收费信息5"       type="bean"     wrap-class="ChargeDM"     value="">
+				<field name="chrgCod"           alias="INM_CHRG_COD"          value="context.chargeDM.(#this == null ? null : #this.feeGrpInfo.(#this == null || #this.size lt 5 ? null : #this.get(4).chrgCod))"/>
+				<field name="dsctRat"           alias="INM_DSCT_RAT"          value="context.chargeDM.(#this == null ? null : #this.feeGrpInfo.(#this == null || #this.size lt 5 ? null : #this.get(4).dsctRat))"/>
+				<field name="custChrgeFee"      alias="INM_CUST_CHRGE_FEE"    value="context.chargeDM.(#this == null ? null : #this.feeGrpInfo.(#this == null || #this.size lt 5 ? null : #this.get(4).custChrgeFee))"/>
+			</object>
+			<field  name="INM_ENC_DEV_ID"       alias="INM_ENC_DEV_ID"        value="tellerInfo.G_DEV_ID"/>
+			<fixed-field name="INM_FILLER_1"    encoding="EBCDIC"   len="8"   fill-style="right" class="String"     alias="" desc=""/>
+			<fixed-field name="INM_FILLER_2"    encoding="EBCDIC"   len="12"  fill-style="right" class="String"     alias="" desc=""/>
+			<fixed-field name="INM_FILLER_3"    encoding="EBCDIC"   len="20"  fill-style="right" class="String"     alias="" desc=""/>
+		</request>
+		<!-- 
+		
+		-->
+		<response>
+			<field  name="OPM_TX_LOG_NO"        alias="OPM_TX_LOG_NO"         value="context.TX_LOG_NO">
+				<mapping express-id="0" trade-code="*" value="storeData.G_OPM_TX_LOG_NO"/>
+				<mapping express-id="0" trade-code="*" value="storeData.G_SERIALNO"/>
+			</field>
+			<field  name="OPM_TIMESTAMP"        alias="OPM_TIMESTAMP"         value="innerArea.TIMESTAMP">
+				<mapping express-id="0" trade-code="21114" value="tempArea.TIMESTAMP"/>
+				<mapping express-id="0" trade-code="21302" value="tempArea.TIMESTAMP"/>
+			</field>
+			<object name="OPM-MSG-GRP1"         alias=""            desc="输出讯息1"       type="bean"     wrap-class="Map"     value="msgList = {''} , msgList[0]">
+				<field name="msgSeq"            alias="OPM_MSG_SEQ"/>
+				<field name="msgCode"           alias="OPM_MSG_CODE"/>
+				<field name="msgTxt"            alias="OPM_MSG_TXT"/>
+				<field name="msgDbTxt"          alias="OPM_MSG_DB_TXT"/>
+			</object>
+			<object name="OPM-MSG-GRP2"         alias=""            desc="输出讯息2"       type="bean"     wrap-class="Map"     value="msgList = {''} , msgList[0]">
+				<field name="msgSeq"            alias="OPM_MSG_SEQ"/>
+				<field name="msgCode"           alias="OPM_MSG_CODE"/>
+				<field name="msgTxt"            alias="OPM_MSG_TXT"/>
+				<field name="msgDbTxt"          alias="OPM_MSG_DB_TXT"/>
+			</object>
+			<object name="OPM-MSG-GRP3"         alias=""            desc="输出讯息3"       type="bean"     wrap-class="Map"     value="msgList = {''} , msgList[0]">
+				<field name="msgSeq"            alias="OPM_MSG_SEQ"/>
+				<field name="msgCode"           alias="OPM_MSG_CODE"/>
+				<field name="msgTxt"            alias="OPM_MSG_TXT"/>
+				<field name="msgDbTxt"          alias="OPM_MSG_DB_TXT"/>
+			</object>
+			<object name="OPM-MSG-GRP4"         alias=""            desc="输出讯息4"       type="bean"     wrap-class="Map"     value="msgList = {''} , msgList[0]">
+				<field name="msgSeq"            alias="OPM_MSG_SEQ"/>
+				<field name="msgCode"           alias="OPM_MSG_CODE"/>
+				<field name="msgTxt"            alias="OPM_MSG_TXT"/>
+				<field name="msgDbTxt"          alias="OPM_MSG_DB_TXT"/>
+			</object>
+			<object name="OPM-MSG-GRP5"         alias=""            desc="输出讯息5"       type="bean"     wrap-class="Map"     value="msgList = {''} , msgList[0]">
+				<field name="msgSeq"            alias="OPM_MSG_SEQ"/>
+				<field name="msgCode"           alias="OPM_MSG_CODE"/>
+				<field name="msgTxt"            alias="OPM_MSG_TXT"/>
+				<field name="msgDbTxt"          alias="OPM_MSG_DB_TXT"/>
+			</object>
+			<object name="OPM-MSG-GRP6"         alias=""            desc="输出讯息6"       type="bean"     wrap-class="Map"     value="msgList = {''} , msgList[0]">
+				<field name="msgSeq"            alias="OPM_MSG_SEQ"/>
+				<field name="msgCode"           alias="OPM_MSG_CODE"/>
+				<field name="msgTxt"            alias="OPM_MSG_TXT"/>
+				<field name="msgDbTxt"          alias="OPM_MSG_DB_TXT"/>
+			</object>
+			<object name="OPM-MSG-GRP7"         alias=""            desc="输出讯息7"       type="bean"     wrap-class="Map"     value="msgList = {''} , msgList[0]">
+				<field name="msgSeq"            alias="OPM_MSG_SEQ"/>
+				<field name="msgCode"           alias="OPM_MSG_CODE"/>
+				<field name="msgTxt"            alias="OPM_MSG_TXT"/>
+				<field name="msgDbTxt"          alias="OPM_MSG_DB_TXT"/>
+			</object>
+			<object name="OPM-MSG-GRP8"         alias=""            desc="输出讯息8"       type="bean"     wrap-class="Map"     value="msgList = {''} , msgList[0]">
+				<field name="msgSeq"            alias="OPM_MSG_SEQ"/>
+				<field name="msgCode"           alias="OPM_MSG_CODE"/>
+				<field name="msgTxt"            alias="OPM_MSG_TXT"/>
+				<field name="msgDbTxt"          alias="OPM_MSG_DB_TXT"/>
+			</object>
+			<object name="OPM_PAGE_CTL"         alias=""            desc="翻页对象"        type="bean"     wrap-class="Map"     value="tempArea.pageContext">
+				<field name="staKey"            alias="INM_PAGE_STA_KEY"/>
+				<field name="endKey"            alias="INM_PAGE_END_KEY"/>
+				<field name="noData"            alias="OPM_PAGE_NO_DATA"/>
+			</object>
+			<field name="OPM_PSN"               alias="OPM_PSN"               value="innerArea.PSN"/>
+			<field name="OPM_TRIG_TX_ID"        alias="OPM_TRIG_TX_ID"        value="innerArea.TRIG_TX_ID"/>
+			<fixed-field name="OPM_SEC_CTL"     encoding="ISO8859-1"   len="8"   fill-style="left"  class="ByteBuffer" alias="" desc=""/>
+			<fixed-field name="OPM_MAC"         encoding="ISO8859-1"   len="20"  fill-style="left"  class="ByteBuffer" alias="" desc=""/>
+			<object name="OPM_AUT"              alias=""            desc="跨机构授复"      type="bean"     wrap-class="AuthDM"       value="context.authDM">
+				<field name="authContext.autReqNo"          alias="OPM_AUT_REQ_NO"        value="innerArea.AUT_REQ_NO"/>
+				<field name="authContext.autTyp"            alias="OPM_AUT_TYP"           value="innerArea.AUT_TYP"/>
+				<field name="authContext.autFixBrh"         alias="OPM_AUT_FIX_BRH"       value="innerArea.AUT_FIX_BRH"/>
+			</object>
+		</response>
+	</interface>
+</interfaces>

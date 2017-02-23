@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="cn.com.agree.ab.prerequisite.run">
+      <run
+            class="cn.com.agree.inject.InjectLauncher"
+            name="依赖注入框架预启动">
+      </run>
+   </extension>
+
+</plugin>

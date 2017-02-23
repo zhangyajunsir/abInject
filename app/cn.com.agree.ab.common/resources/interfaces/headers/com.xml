@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interfaces 
+	xmlns="http://www.w3school.com" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3school.com ../../xsd/lenovo_sop_header.xsd">
+	<!-- 别名映射，提供对别名和类全限定名之间的映射 -->
+	<alias-mappings>
+		<!-- domain取值inner和global,inner仅在HJ19接口内有效，global在全局有效,在不设置domain时默认为inner -->
+	</alias-mappings>
+	<!-- 元信息池 -->
+	<metadatas-pool>
+	</metadatas-pool>
+	<request>
+		<fixed-field name="ZHNGDH" alias="ZHNGDH_REQ" desc="终端号" len="5" fill-style="right" class="String"/>
+		<fixed-field name="CHSHDM" alias="CHSHDM_REQ" desc="城市代码" len="4" fill-style="right" class="String"/>
+		<fixed-field name="YNGYJG" alias="YNGYJG_REQ" desc="机构代码" len="4" fill-style="right" class="String"/>
+		<fixed-field name="JIO1GY" alias="JIO1GY_REQ" desc="交易柜员" len="8" fill-style="right" class="String"/>
+	</request>
+	<response>
+		<fixed-field name="JIAOYM" alias="JIAOYM_RSP" desc="交易代码" len="4" fill-style="right" class="String"/>
+		<fixed-field name="LDJYDM" alias="LDJYDM_RSP" desc="联动交易码" len="4" fill-style="right" class="String"/>
+		<fixed-field name="JIOYRQ" alias="JIOYRQ_RSP" desc="交易日期" len="8" fill-style="right" class="String"/>
+		<fixed-field name="JIOYSJ" alias="JIOYSJ_RSP" desc="交易时间" len="4" fill-style="right" class="String" value="1234" value-mode="default"/>
+		<fixed-field name="GUIYLS" alias="GUIYLS_RSP" desc="柜员流水号" len="12" fill-style="right" class="String"/>
+		<fixed-field name="CWJYXH" alias="CWJYXH_RSP" desc="出错交易序号" len="2" fill-style="right" class="String"/>
+		<fixed-field name="PTCWDH" alias="PTCWDH_RSP" desc="错误代号" len="7" fill-style="right" class="String" value="AAAAAAA" value-mode="default"/>
+	</response>
+	<exception>
+		<fixed-field name="JIAOYM" alias="JIAOYM_EXP" desc="交易代码" len="4" fill-style="right" class="String"/>
+		<fixed-field name="LDJYDM" alias="LDJYDM_EXP" desc="联动交易码" len="4" fill-style="right" class="String"/>
+		<fixed-field name="JIOYRQ" alias="JIOYRQ_EXP" desc="交易日期" len="8" fill-style="right" class="String"/>
+		<fixed-field name="JIOYSJ" alias="JIOYSJ_EXP" desc="交易时间" len="4" fill-style="right" class="String"/>
+		<fixed-field name="GUIYLS" alias="GUIYLS_EXP" desc="柜员流水号" len="12" fill-style="right" class="String"/>
+		<fixed-field name="CWJYXH" alias="CWJYXH_EXP" desc="出错交易序号" len="2" fill-style="right" class="String"/>
+		<fixed-field name="PTCWDH" alias="PTCWDH_EXP" desc="错误代号" len="7" fill-style="right" class="String"/>
+	</exception>
+</interfaces>

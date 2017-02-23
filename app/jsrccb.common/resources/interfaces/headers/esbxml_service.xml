@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interfaces 
+	xmlns="http://www.w3school.com" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3school.com ../../xsd/ibm_xml_header.xsd">
+	<!-- 别名映射 -->
+	<alias-mappings>
+		<!-- domain取值inner和global,inner仅在接口内有效，global在全局有效,在不设置domain时默认为inner -->
+		<mapping alias="String"         real="java.lang.String"              domain="global"/>
+		<mapping alias="Date"           real="java.util.Date"                domain="global"/>
+		<mapping alias="BigDecimal"     real="java.math.BigDecimal"          domain="global"/>
+		<mapping alias="Integer"        real="java.lang.Integer"             domain="global"/>
+		<mapping alias="Byte"           real="java.lang.Byte"                domain="global"/>
+		<mapping alias="ByteBuffer"     real="java.nio.ByteBuffer"           domain="global"/>
+		<mapping alias="StringArray"    real="[Ljava.lang.String"            domain="global"/>
+		<mapping alias="ObjectArray"    real="[Ljava.lang.Object"            domain="global"/>
+		<mapping alias="List"           real="java.util.ArrayList"           domain="global"/>
+		<mapping alias="Map"            real="java.util.HashMap"             domain="global"/>
+		<mapping alias="esbRspDM"       real="jsrccb.common.dm.rsp.EsbRspDM" domain="inner"/>
+	</alias-mappings>
+	<!-- 元信息池 -->
+	<metadatas-pool>
+
+	</metadatas-pool>
+	<interface name="service">
+		<request>
+			<mappings>
+				<!-- 取值映射 -->
+			</mappings>
+			<req_template>
+				<![CDATA[
+					<Service_Header>
+						<service_sn>${innerArea.serviceSN}</service_sn>
+						<service_id>${commCodeDMMap["${currentCommCode}"].transCode}</service_id>
+						<requester_id>0018</requester_id>
+						<branch_id sys_id="0001">${tellerInfo.G_QBR}</branch_id>
+						<channel_id>01</channel_id>
+						<service_time>${innerArea.serviceTime}</service_time>
+						<version_id>01</version_id>
+						<macvalue/>
+						<need_request>true</need_request>
+					</Service_Header>
+				]]>
+			</req_template>
+		</request>
+		<response>
+			<mappings>
+				<!-- 赋值映射 -->
+			</mappings>
+			<rsp_wrap_class alias="esbRspDM"/>
+		</response>
+	</interface>
+</interfaces>

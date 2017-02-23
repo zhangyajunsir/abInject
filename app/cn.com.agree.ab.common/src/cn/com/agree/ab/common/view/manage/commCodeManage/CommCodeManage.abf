@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="GBK"?>
+<content>
+    <entry key="layout#layout" value="xy" type="String"/>
+    <entry key="constraints#xy_location" value="0,0" type="String"/>
+    <entry key="constraints#xy_size" value="663,526" type="String"/>
+    <entry key="enable" value="true" type="Boolean"/>
+    <entry key="visible" value="true" type="Boolean"/>
+    <entry key="title" value="" type="String"/>
+    <entry key="parent_trade" value="" type="String"/>
+    <entry key="help" value="" type="String"/>
+    <entry key="dictionary_key" value="" type="String"/>
+    <entry key="methods"
+        value="button_确定_OnClick,combo_功能号_OnBlur,text_通讯码_OnBlur,button_退出_OnClick" type="String"/>
+    <bean feature="Label">
+        <entry key="constraints#xy_location" value="10,20" type="String"/>
+        <entry key="constraints#xy_size" value="90,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="label_功能号" type="String"/>
+        <entry key="text" value="功能号" type="String"/>
+        <entry key="horizontal_alignment" value="1" type="Integer"/>
+    </bean>
+    <bean feature="Combo">
+        <entry key="constraints#xy_location" value="115,20" type="String"/>
+        <entry key="constraints#xy_size" value="200,26" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="combo_功能号" type="String"/>
+        <entry key="combo_items" value="1 新增,2 查询,3 修改,4 删除" type="String[]"/>
+        <entry key="requisite" value="true" type="Boolean"/>
+        <entry key="relations" value="" type="String"/>
+    </bean>
+    <bean feature="Label">
+        <entry key="constraints#xy_location" value="345,20" type="String"/>
+        <entry key="constraints#xy_size" value="90,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="label_通讯码" type="String"/>
+        <entry key="text" value="通讯码" type="String"/>
+        <entry key="horizontal_alignment" value="1" type="Integer"/>
+    </bean>
+    <bean feature="Text">
+        <entry key="constraints#xy_location" value="450,20" type="String"/>
+        <entry key="constraints#xy_size" value="200,26" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="text_通讯码" type="String"/>
+        <entry key="requisite" value="true" type="Boolean"/>
+    </bean>
+    <bean feature="Label">
+        <entry key="constraints#xy_location" value="10,65" type="String"/>
+        <entry key="constraints#xy_size" value="90,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="label_系统代码" type="String"/>
+        <entry key="text" value="系统代码" type="String"/>
+        <entry key="horizontal_alignment" value="1" type="Integer"/>
+    </bean>
+    <bean feature="Combo">
+        <entry key="constraints#xy_location" value="115,65" type="String"/>
+        <entry key="constraints#xy_size" value="200,26" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="combo_系统代码" type="String"/>
+        <entry key="combo_items"
+            value="host 主机,local 本地,afa afa,esb esb,his his" type="String[]"/>
+        <entry key="requisite" value="false" type="Boolean"/>
+        <entry key="relations" value="" type="String"/>
+    </bean>
+    <bean feature="Label">
+        <entry key="constraints#xy_location" value="345,65" type="String"/>
+        <entry key="constraints#xy_size" value="90,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="label_交互码" type="String"/>
+        <entry key="text" value="交互码" type="String"/>
+        <entry key="horizontal_alignment" value="1" type="Integer"/>
+        <entry key="visible" value="true" type="Boolean"/>
+    </bean>
+    <bean feature="Text">
+        <entry key="constraints#xy_location" value="450,65" type="String"/>
+        <entry key="constraints#xy_size" value="200,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="text_交互码" type="String"/>
+    </bean>
+    <bean feature="Label">
+        <entry key="constraints#xy_location" value="10,110" type="String"/>
+        <entry key="constraints#xy_size" value="90,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="label_渠道代码" type="String"/>
+        <entry key="text" value="渠道代码" type="String"/>
+        <entry key="horizontal_alignment" value="1" type="Integer"/>
+    </bean>
+    <bean feature="Combo">
+        <entry key="constraints#xy_location" value="115,110" type="String"/>
+        <entry key="constraints#xy_size" value="200,26" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="combo_渠道代码" type="String"/>
+        <entry key="combo_items" value="00 host,01 other" type="String[]"/>
+        <entry key="requisite" value="false" type="Boolean"/>
+        <entry key="relations" value="" type="String"/>
+    </bean>
+    <bean feature="Text">
+        <entry key="constraints#xy_location" value="450,110" type="String"/>
+        <entry key="constraints#xy_size" value="200,26" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="text_i表" type="String"/>
+    </bean>
+    <bean feature="Label">
+        <entry key="constraints#xy_location" value="345,110" type="String"/>
+        <entry key="constraints#xy_size" value="90,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="label_i表" type="String"/>
+        <entry key="text" value="i表" type="String"/>
+        <entry key="horizontal_alignment" value="1" type="Integer"/>
+    </bean>
+    <bean feature="Label">
+        <entry key="constraints#xy_location" value="10,155" type="String"/>
+        <entry key="constraints#xy_size" value="90,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="label_o表" type="String"/>
+        <entry key="text" value="o表" type="String"/>
+        <entry key="horizontal_alignment" value="1" type="Integer"/>
+    </bean>
+    <bean feature="Text">
+        <entry key="constraints#xy_location" value="115,155" type="String"/>
+        <entry key="constraints#xy_size" value="200,26" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="text_o表" type="String"/>
+    </bean>
+    <bean feature="Label">
+        <entry key="constraints#xy_location" value="345,155" type="String"/>
+        <entry key="constraints#xy_size" value="90,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="label_通讯标志" type="String"/>
+        <entry key="text" value="通讯标志" type="String"/>
+        <entry key="horizontal_alignment" value="1" type="Integer"/>
+    </bean>
+    <bean feature="Combo">
+        <entry key="constraints#xy_location" value="450,155" type="String"/>
+        <entry key="constraints#xy_size" value="200,26" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="combo_通讯标志" type="String"/>
+        <entry key="combo_items" value="0 主通讯,1 嵌套通讯" type="String[]"/>
+        <entry key="relations" value="" type="String"/>
+    </bean>
+    <bean feature="Label">
+        <entry key="constraints#xy_location" value="10,200" type="String"/>
+        <entry key="constraints#xy_size" value="90,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="label_超时时间" type="String"/>
+        <entry key="text" value="超时时间" type="String"/>
+        <entry key="horizontal_alignment" value="1" type="Integer"/>
+    </bean>
+    <bean feature="Text">
+        <entry key="constraints#xy_location" value="115,200" type="String"/>
+        <entry key="constraints#xy_size" value="200,26" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="text_超时时间" type="String"/>
+    </bean>
+    <bean feature="Label">
+        <entry key="constraints#xy_location" value="10,245" type="String"/>
+        <entry key="constraints#xy_size" value="90,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="label_备注" type="String"/>
+        <entry key="text" value="备注" type="String"/>
+        <entry key="horizontal_alignment" value="1" type="Integer"/>
+    </bean>
+    <bean feature="Text">
+        <entry key="constraints#xy_location" value="115,245" type="String"/>
+        <entry key="constraints#xy_size" value="535,55" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="text_备注" type="String"/>
+    </bean>
+    <bean feature="Button">
+        <entry key="constraints#xy_location" value="115,325" type="String"/>
+        <entry key="constraints#xy_size" value="90,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="button_确定" type="String"/>
+        <entry key="text" value="确定" type="String"/>
+    </bean>
+    <bean feature="Button">
+        <entry key="constraints#xy_location" value="450,325" type="String"/>
+        <entry key="constraints#xy_size" value="90,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="button_退出" type="String"/>
+        <entry key="text" value="退出" type="String"/>
+    </bean>
+</content>

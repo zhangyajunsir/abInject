@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interfaces 
+	xmlns="http://www.w3school.com" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3school.com ../../xsd/ibm_xml_header.xsd">
+	<!-- 别名映射 -->
+	<alias-mappings>
+		<!-- domain取值inner和global,inner仅在接口内有效，global在全局有效,在不设置domain时默认为inner -->
+		<mapping alias="String"         real="java.lang.String"              domain="global"/>
+		<mapping alias="Date"           real="java.util.Date"                domain="global"/>
+		<mapping alias="BigDecimal"     real="java.math.BigDecimal"          domain="global"/>
+		<mapping alias="Integer"        real="java.lang.Integer"             domain="global"/>
+		<mapping alias="Byte"           real="java.lang.Byte"                domain="global"/>
+		<mapping alias="ByteBuffer"     real="java.nio.ByteBuffer"           domain="global"/>
+		<mapping alias="StringArray"    real="[Ljava.lang.String"            domain="global"/>
+		<mapping alias="ObjectArray"    real="[Ljava.lang.Object"            domain="global"/>
+		<mapping alias="afaExtDM"       real="jsrccb.common.dm.rsp.AfaExtDM" domain="inner"/>
+	</alias-mappings>
+	<!-- 元信息池 -->
+	<metadatas-pool>
+
+	</metadatas-pool>
+	<interface name="ext_attributes">
+		<request>
+			<mappings>
+				<!-- 取值映射 -->
+			</mappings>
+			<req_template>
+				<![CDATA[
+					<ext_attributes>
+						<INM-BUS-OP-CODE>${context.tradeCodeDM.code?substring(0, 4)}</INM-BUS-OP-CODE>
+						<FILLER1>${context.tradeCodeDM.code?substring(4, 5)}</FILLER1>
+						<brno>${tellerInfo.G_QBR}</brno>
+						<tellerno>${tellerInfo.G_TELLER}</tellerno>
+						<terminalno>${tellerInfo.G_TTYNO}</terminalno>
+						<#if context.reviewDM??>
+						<chktellerno>${context.reviewDM.reviewTeller}</chktellerno>
+						</#if>
+						<#if context.authDM??>
+						<authtellerno>${context.authDM.authTellerA!}</authtellerno>
+						<authtellerno2>${context.authDM.authTellerB!}</authtellerno2>
+						</#if>
+						<templatecode>${currentCommCode?substring(0, 6)}</templatecode>
+						<transcode>${currentCommCode?substring(6, 12)}</transcode>
+						<channelcode>001</channelcode>
+						<channeldate>${tellerInfo.G_DATE}</channeldate>
+						<channelseq>${innerArea.channelSeq}</channelseq>
+						<INM-ENC-DEV-ID>${tellerInfo.G_INM_ENC_DEV_ID}</INM-ENC-DEV-ID>
+						<#if context.pagingDM??>
+						<INM-PAGE-CTL>
+							<INM-PAGE-UP-DOWN>${(context.pagingDM.pageContext.action)!0}</INM-PAGE-UP-DOWN>
+							<INM-PAGE-STA-KEY>${(context.pagingDM.pageContext.staKey)!}</INM-PAGE-STA-KEY>
+							<INM-PAGE-END-KEY>${(context.pagingDM.pageContext.endKey)!}</INM-PAGE-END-KEY>
+						</INM-PAGE-CTL>
+						</#if>
+					</ext_attributes>
+					<MAC/>
+				]]>
+			</req_template>
+		</request>
+		<response>
+			<mappings>
+				<!-- 赋值映射 -->
+			</mappings>
+			<rsp_wrap_class alias="afaExtDM"/>
+		</response>
+	</interface>
+</interfaces>

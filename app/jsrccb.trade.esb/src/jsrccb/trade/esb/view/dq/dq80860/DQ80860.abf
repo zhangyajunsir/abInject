@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="GBK"?>
+<content>
+    <entry key="layout#layout" value="xy" type="String"/>
+    <entry key="constraints#xy_location" value="0,0" type="String"/>
+    <entry key="constraints#xy_size" value="775,242" type="String"/>
+    <entry key="enable" value="true" type="Boolean"/>
+    <entry key="visible" value="true" type="Boolean"/>
+    <entry key="title" value="" type="String"/>
+    <entry key="parent_trade" value="" type="String"/>
+    <entry key="help" value="企业网银销户信息同步" type="String"/>
+    <entry key="dictionary_key" value="" type="String"/>
+    <entry key="methods"
+        value="button_submit_OnClick,button_exit_OnClick" type="String"/>
+    <bean feature="Label">
+        <entry key="constraints#xy_location" value="0,10" type="String"/>
+        <entry key="constraints#xy_size" value="120,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="label_账户类型" type="String"/>
+        <entry key="text" value="账户类型" type="String"/>
+    </bean>
+    <bean feature="Combo">
+        <entry key="constraints#xy_location" value="130,10" type="String"/>
+        <entry key="constraints#xy_size" value="220,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="combo_账户类型" type="String"/>
+        <entry key="combo_items" value="ESAV 对公活期,ESDC 圆鼎单位卡,EUBC 单位结算卡" type="String[]"/>
+        <entry key="requisite" value="true" type="Boolean"/>
+        <entry key="relations" value="" type="String"/>
+    </bean>
+    <bean feature="Label">
+        <entry key="constraints#xy_location" value="0,45" type="String"/>
+        <entry key="constraints#xy_size" value="120,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="label_账号" type="String"/>
+        <entry key="text" value="账号" type="String"/>
+    </bean>
+    <bean feature="Text">
+        <entry key="constraints#xy_location" value="130,45" type="String"/>
+        <entry key="constraints#xy_size" value="220,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="text_账号" type="String"/>
+        <entry key="requisite" value="true" type="Boolean"/>
+        <entry key="picture" value="-32&quot;X&quot;" type="String"/>
+    </bean>
+    <bean feature="Label">
+        <entry key="constraints#xy_location" value="0,80" type="String"/>
+        <entry key="constraints#xy_size" value="120,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="label_证件类型" type="String"/>
+        <entry key="text" value="证件类型" type="String"/>
+    </bean>
+    <bean feature="Combo">
+        <entry key="constraints#xy_location" value="130,80" type="String"/>
+        <entry key="constraints#xy_size" value="220,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="combo_证件类型" type="String"/>
+        <entry key="combo_items"
+            value="E01 组织机构代码证,E02 营业执照,E03 企业名称核准书,E04 政府机构/公共机构批文,E05 香港商业登记证,E06 开户证明,E07 军队开户许可证,E08 社会团体证,E99 其他" type="String[]"/>
+        <entry key="requisite" value="true" type="Boolean"/>
+        <entry key="relations" value="" type="String"/>
+    </bean>
+    <bean feature="Label">
+        <entry key="constraints#xy_location" value="0,115" type="String"/>
+        <entry key="constraints#xy_size" value="120,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="label_证件号码" type="String"/>
+        <entry key="text" value="证件号码" type="String"/>
+    </bean>
+    <bean feature="Text">
+        <entry key="constraints#xy_location" value="130,115" type="String"/>
+        <entry key="constraints#xy_size" value="220,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="text_证件号码" type="String"/>
+        <entry key="requisite" value="true" type="Boolean"/>
+        <entry key="picture" value="-32&quot;X&quot;" type="String"/>
+    </bean>
+    <bean feature="Button">
+        <entry key="constraints#xy_location" value="150,170" type="String"/>
+        <entry key="constraints#xy_size" value="90,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="button_submit" type="String"/>
+        <entry key="text" value="确定" type="String"/>
+    </bean>
+    <bean feature="Button">
+        <entry key="constraints#xy_location" value="510,170" type="String"/>
+        <entry key="constraints#xy_size" value="90,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="button_exit" type="String"/>
+        <entry key="text" value="退出" type="String"/>
+    </bean>
+</content>

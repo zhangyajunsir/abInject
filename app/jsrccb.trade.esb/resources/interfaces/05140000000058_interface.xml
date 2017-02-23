@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interfaces 
+	xmlns="http://www.w3school.com" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3school.com ../xsd/ibm_xml.xsd">
+	<!-- 别名映射 -->
+	<alias-mappings>
+		<!-- domain取值inner和global,inner仅在接口内有效，global在全局有效,在不设置domain时默认为inner -->
+		<mapping alias="DQ05140000000058DM"      real="jsrccb.trade.esb.dm.rsp.DQ05140000000058DM" domain="inner"/>
+	</alias-mappings>
+	<!-- 元信息池 -->
+	<metadatas-pool>
+		<!-- 上送字段 -->			
+		<variable-field name="CifNo" 		        alias="" encoding="GBK" min-len="0" max-len="32"  class="String" allow-null="true" desc="企业核心客户号"/>
+		<variable-field name="DeptId"   			alias="" encoding="GBK" min-len="0" max-len="32"  class="String" allow-null="true" desc="机构号"/>
+		<variable-field name="AcNo"    				alias="" encoding="GBK" min-len="0" max-len="32"  class="String" allow-null="true" desc="企业账号"/>
+		
+		<!-- 下送字段 -->
+		<variable-field name="CifSeq"    			alias="" encoding="GBK" min-len="0" max-len="32"  class="String" allow-null="true" desc="电子银行客户号"/>
+		<variable-field name="CifNo"    			alias="" encoding="GBK" min-len="0" max-len="32"  class="String" allow-null="true" desc="企业客户号"/>
+		<variable-field name="CifName"    			alias="" encoding="GBK" min-len="0" max-len="32"  class="String" allow-null="true" desc="客户名称"/>
+		<variable-field name="CheckerNum"    		alias="" encoding="GBK" min-len="0" max-len="32"  class="String" allow-null="true" desc="对账操作员个数"/>
+		<variable-field name="Submitter"    		alias="" encoding="GBK" min-len="0" max-len="32"  class="String" allow-null="true" desc="对账录入员"/>
+		<variable-field name="Examiner"    			alias="" encoding="GBK" min-len="0" max-len="32"  class="String" allow-null="true" desc="对账审核员"/>
+		<variable-field name="ChecksignFlag"    	alias="" encoding="GBK" min-len="0" max-len="32"  class="String" allow-null="true" desc=""/>
+		<variable-field name="UserId"    			alias="" encoding="GBK" min-len="0" max-len="32"  class="String" allow-null="true" desc="操作员ID"/>
+		<variable-field name="UserName"    			alias="" encoding="GBK" min-len="0" max-len="32"  class="String" allow-null="true" desc="操作员名称"/>
+		<variable-field name="UserGrpId"    		alias="" encoding="GBK" min-len="0" max-len="32"  class="String" allow-null="true" desc="用户级别"/>
+		<variable-field name="IdType"    			alias="" encoding="GBK" min-len="0" max-len="32"  class="String" allow-null="true" desc="证件类型"/>
+		<variable-field name="IdNo"    				alias="" encoding="GBK" min-len="0" max-len="32"  class="String" allow-null="true" desc="证件号"/>
+		<variable-field name="Email"    			alias="" encoding="GBK" min-len="0" max-len="32"  class="String" allow-null="true" desc="Email"/>
+		<variable-field name="Phone"    			alias="" encoding="GBK" min-len="0" max-len="32"  class="String" allow-null="true" desc="电话"/>
+		<variable-field name="OpenDate"    			alias="" encoding="GBK" min-len="0" max-len="32"  class="String" allow-null="true" desc="对账功能开通日期"/>
+		<variable-field name="UserState"    		alias="" encoding="GBK" min-len="0" max-len="32"  class="String" allow-null="true" desc="操作员状态"/>
+		<variable-field name="UserFlag"    			alias="" encoding="GBK" min-len="0" max-len="32"  class="String" allow-null="true" desc="操作员的对账角色"/>		
+	
+	</metadatas-pool>
+	<interface name="05140000000058">
+		<request>
+			<mappings>
+				<!-- 取值映射 -->				
+				<field name="CifNo" 	        	alias="CifNo" 	     		value="uiData['text_核心客户号|text']"/>
+				<field name="AcNo"       			alias="AcNo"    			value="uiData['text_企业账号|text']"/>
+				<field name="DeptId" 	      		alias="DeptId" 	   			value="tellerInfo.G_QBR"/>
+			</mappings>
+			<service_header inline="headers/esbxml_service.xml"/>
+			<ext_attributes inline="headers/esbxml_extatts.xml"/>
+			<req_template>
+				<![CDATA[
+					<?xml version="1.0" encoding="UTF-8"?>
+					<Service>
+						${innerArea.service_header}
+						<Service_Body>
+							${innerArea.ext_attributes}
+							<request>
+								<CifNo>${innerArea.mappings.CifNo}</CifNo>
+								<AcNo>${innerArea.mappings.AcNo}</AcNo>
+								<DeptId>${innerArea.mappings.DeptId}</DeptId>
+							</request>
+						</Service_Body>
+					</Service>
+				]]>
+			</req_template>
+		</request>
+		<response>
+			<mappings>
+				<field name="CifSeq"				alias="CifSeq"    		value="uiData.CifSeq"/>
+				<field name="CifNo"        			alias="CifNo"     		value="uiData['text_企业客户号|text']"/>
+				<field name="CifName"     			alias="CifName"  		value="uiData['text客户名称|text']"/>
+				<field name="CheckerNum"       		alias="CheckerNum"    	value="#root == null ? uiData['combo_对账操作员个数|prefix'] = 1 : uiData['combo_对账操作员个数|prefix'] = #root"/>
+				<field name="Submitter"         	alias="Submitter"      	value="uiData['text_基本存款账号|text']"/>
+				<field name="Examiner"       		alias="Examiner"    	value="uiData['text_开户行号|text']"/>
+				<field name="ChecksignFlag"         alias="ChecksignFlag"   value="uiData['text_法人代表|text']"/>
+				<object name="#this.list.map" alias="" desc="" encoding="GBK" type="list" wrap-class="StringArray" value="" count="-1" col-mode="crosswise">
+					<field name="#root[0]"          alias="UserId"          value="#this.UserId"/>
+					<field name="#root[1]"          alias="UserName"        value="#this.UserName"/>
+					<field name="#root[2]"          alias="UserGrpId"       value="#this.UserGrpId"/>
+					<field name="#root[3]"          alias="IdType"          value="#this.IdType"/>
+					<field name="#root[4]"          alias="IdNo"            value="#this.IdNo"/>
+					<field name="#root[5]"          alias="Email"           value="#this.Email"/>
+					<field name="#root[6]"          alias="Phone"           value="#this.Phone"/>
+					<field name="#root[7]"          alias="OpenDate"        value="#this.OpenDate"/>
+					<field name="#root[8]"          alias="UserState"       value="#this.UserState"/>
+					<field name="#root[9]"          alias="UserFlag"		value="#this.UserFlag"/>
+	
+					<mapping express-id="0" trade-code="80809n"  value="uiData['table_操作员表1|rows']" item-bit="1,2,3,4,5,6,7,8,9,10"/>
+					<mapping express-id="0" trade-code="80809n"  value="uiData['table_操作员表2|rows']" item-bit="1,2,3,4,5,6,7,8,9,10"/>
+				</object>
+				
+			</mappings>
+			<service        inline="headers/esbxml_service.xml"/>
+			<ext_attributes inline="headers/esbxml_extatts.xml"/>
+			<rsp_wrap_class alias="DQ05140000000058DM"/>
+		</response>
+	</interface>
+</interfaces>

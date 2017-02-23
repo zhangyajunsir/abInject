@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<print-cfg 
+	xmlns="http://www.w3school.com" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3school.com ../xsd/print.xsd">
+	<proofs>
+		<!-- 单个凭证配置，老配置中00和01不需要配置 -->
+		<proof name="FCMAEA01" type="text"  preview="true" must="false" reprint="true" template="rccb/dsr/f/FCMAEA01f.fmt">会计分录明细</proof>
+		<proof name="PZZB5074" type="text"  preview="true" must="false" reprint="true" template="rccb/dsr/f/PZZB5074f.fmt">个人业务现金存款凭证</proof>
+		<proof name="PEC39221" type="text"  preview="true" must="false" reprint="true" template="rccb/dsr/f/PEC39221f.fmt">公有客户群维护凭证</proof>
+		<proof name="510311o" type="text"  preview="true" must="false" reprint="true" template="rccb/dsr/f/510311of.fmt">电子缴款凭证打印</proof>
+		<proof name="df_800015o" type="text"  preview="true" must="false" reprint="true" template="rccb/dsr/f/df_800015of.fmt"> 电费托收凭证</proof>
+		<proof name="df_8000152o" type="text"  preview="true" must="false" reprint="true" template="rccb/dsr/f/df_8000152of.fmt">电费发票凭证</proof>
+		<proof name="df_8000150o" type="text"  preview="true" must="false" reprint="true" template="rccb/dsr/f/df_8000150of.fmt">发票联</proof>
+		<proof name="ffines_036510o" type="text"  preview="true" must="false" reprint="true" template="ffines_036510of.fmt">溧水罚没款划款凭证</proof>
+		<proof name="met_513036o" type="text"  preview="true" must="false" reprint="true" template="met_513036of.fmt">预售单号提货凭证</proof>
+	</proofs>
+	
+	<commit-special>
+		<!-- 特殊主通讯，跳过、新增凭证，表格连打方式打印 -->
+		<commit-code name="CR0507401" skip="SCR50740" add="PZZB5074,FCMAEA01" grid=""/>
+		<commit-code name="000012510311" skip="" add="" grid="510311o"/>
+		<commit-code name="electf800015" skip="" add="df_800015o" grid="510311o"/>
+	</commit-special>
+	
+	<reports>
+		<!-- 报表凭证配置 -->
+		<report name="table_name_lp" type="text2LP" preview="true" page-size="10" head-template="/dsr/f/table_nameHf.fmt" body-template="/dsr/f/table_nameDf.fmt" foot-template="/dsr/f/table_nameFf.fmt">表格流水打印</report>
+		<report name="table_KQ51625表格" type="text" preview="true" page-size="10" head-template="jsrccb.trade.afa/dsr/f/table_KQ51625表格Hf.fmt" body-template="jsrccb.trade.afa/dsr/f/table_KQ51625表格Df.fmt" foot-template="jsrccb.trade.afa/dsr/f/table_KQ51625表格Ff.fmt">柜面打印</report>
+		<report name="table_KQ51625表格_lp" type="text2LP" preview="true" page-size="10" head-template="jsrccb.trade.afa/dsr/f/table_KQ51625表格_lpHf.fmt" body-template="jsrccb.trade.afa/dsr/f/table_KQ51625表格_lpDf.fmt" foot-template="jsrccb.trade.afa/dsr/f/table_KQ51625表格_lpFf.fmt">表格流水打印</report>
+		<report name="table_31701_大额" type="text" preview="true" page-size="10" head-template="table_31701_大额Hf.fmt" body-template="table_31701_大额Df.fmt" foot-template="table_com_end.fmt">柜面打印</report>
+		<report name="table_31701_大额_lp" type="text2LP" preview="true" page-size="10" head-template="table_31701_大额_lpHf.fmt" body-template="table_31701_大额_lpDf.fmt" foot-template="table_com_end.fmt">表格流水打印</report>
+
+	</reports>
+</print-cfg>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="GBK"?>
+<content>
+    <entry key="layout#layout" value="xy" type="String"/>
+    <entry key="constraints#xy_location" value="0,0" type="String"/>
+    <entry key="constraints#xy_size" value="600,505" type="String"/>
+    <entry key="enable" value="true" type="Boolean"/>
+    <entry key="visible" value="true" type="Boolean"/>
+    <entry key="backgroundImage"
+        value="/${project_name}/resources/image/login_bg.png" type="String"/>
+    <entry key="title" value="" type="String"/>
+    <entry key="parent_trade" value="" type="String"/>
+    <entry key="help" value="" type="String"/>
+    <entry key="dictionary_key" value="" type="String"/>
+    <entry key="methods"
+        value="button_exit_OnClick,button_login_OnClick,text_teller_number_OnFocus,text_teller_number_OnBlur,text_teller_password_OnBlur,text_terminal_number_OnBlur" type="String"/>
+    <bean feature="Text">
+        <entry key="constraints#xy_location" value="240,193" type="String"/>
+        <entry key="constraints#xy_size" value="220,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="text_teller_number" type="String"/>
+        <entry key="font" value="微软雅黑$16$0" type="String"/>
+        <entry key="requisite" value="true" type="Boolean"/>
+        <entry key="picture" value="-12&quot;X&quot;" type="String"/>
+        <entry key="help" value="柜员号码" type="String"/>
+    </bean>
+    <bean feature="Text">
+        <entry key="constraints#xy_location" value="240,245" type="String"/>
+        <entry key="constraints#xy_size" value="220,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="text_teller_password" type="String"/>
+        <entry key="font" value="微软雅黑$16$0" type="String"/>
+        <entry key="password" value="true" type="Boolean"/>
+        <entry key="requisite" value="true" type="Boolean"/>
+        <entry key="picture" value="-6&quot;0&quot;" type="String"/>
+        <entry key="help" value="柜员密码" type="String"/>
+    </bean>
+    <bean feature="Text">
+        <entry key="constraints#xy_location" value="240,292" type="String"/>
+        <entry key="constraints#xy_size" value="112,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="text_branch_number" type="String"/>
+        <entry key="enable" value="false" type="Boolean"/>
+        <entry key="font" value="微软雅黑$16$0" type="String"/>
+        <entry key="picture" value="-9&quot;X&quot;" type="String"/>
+    </bean>
+    <bean feature="Text">
+        <entry key="constraints#xy_location" value="395,292" type="String"/>
+        <entry key="constraints#xy_size" value="65,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="text_terminal_number" type="String"/>
+        <entry key="enable" value="true" type="Boolean"/>
+        <entry key="font" value="微软雅黑$16$0" type="String"/>
+        <entry key="requisite" value="true" type="Boolean"/>
+        <entry key="picture" value="-3&quot;X&quot;" type="String"/>
+        <entry key="help" value="终端号" type="String"/>
+    </bean>
+    <bean feature="Label">
+        <entry key="constraints#xy_location" value="353,292" type="String"/>
+        <entry key="constraints#xy_size" value="40,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="label_pc_number" type="String"/>
+        <entry key="text" value="A01" type="String"/>
+        <entry key="foreground" value="99,99,99" type="String"/>
+        <entry key="font" value="微软雅黑$16$0" type="String"/>
+    </bean>
+    <bean feature="Checkbox">
+        <entry key="constraints#xy_location" value="135,330" type="String"/>
+        <entry key="constraints#xy_size" value="80,20" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="checkbox_org" type="String"/>
+        <entry key="text" value="机构签到" type="String"/>
+    </bean>
+    <bean feature="Button">
+        <entry key="constraints#xy_location" value="140,365" type="String"/>
+        <entry key="constraints#xy_size" value="128,37" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="button_login" type="String"/>
+        <entry key="text" value="" type="String"/>
+        <entry key="backgroundImage" value="" type="String"/>
+        <entry key="image"
+            value="/${project_name}/resources/image/login_button.png" type="String"/>
+    </bean>
+    <bean feature="Button">
+        <entry key="constraints#xy_location" value="340,365" type="String"/>
+        <entry key="constraints#xy_size" value="128,37" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="button_exit" type="String"/>
+        <entry key="text" value="" type="String"/>
+        <entry key="image"
+            value="/${project_name}/resources/image/exit_button.png" type="String"/>
+    </bean>
+</content>

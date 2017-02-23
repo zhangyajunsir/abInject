@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="GBK"?>
+<content>
+    <entry key="layout#layout" value="xy" type="String"/>
+    <entry key="constraints#xy_location" value="0,0" type="String"/>
+    <entry key="constraints#xy_size" value="550,300" type="String"/>
+    <entry key="enable" value="true" type="Boolean"/>
+    <entry key="visible" value="true" type="Boolean"/>
+    <entry key="title" value="" type="String"/>
+    <entry key="parent_trade" value="" type="String"/>
+    <entry key="help" value="" type="String"/>
+    <entry key="dictionary_key" value="" type="String"/>
+    <entry key="methods" value="button_exit_OnClick" type="String"/>
+    <bean feature="Table">
+        <entry key="constraints#xy_location" value="105,0" type="String"/>
+        <entry key="constraints#xy_size" value="410,230" type="String"/>
+        <entry key="id" value="table_msg" type="String"/>
+        <entry key="h_scroll" value="false" type="Boolean"/>
+        <entry key="v_scroll" value="false" type="Boolean"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="enable" value="false" type="Boolean"/>
+        <bean feature="TableItem">
+            <entry key="constraints#table_item_width" value="100" type="Integer"/>
+            <entry key="title" value="代码" type="String"/>
+            <entry key="dictionary_key" value="" type="String"/>
+        </bean>
+        <bean feature="TableItem">
+            <entry key="constraints#table_item_width" value="300" type="Integer"/>
+            <entry key="title" value="信息" type="String"/>
+            <entry key="dictionary_key" value="" type="String"/>
+        </bean>
+    </bean>
+    <bean feature="Image">
+        <entry key="constraints#xy_location" value="30,20" type="String"/>
+        <entry key="constraints#xy_size" value="40,40" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="image_ico" type="String"/>
+        <entry key="isImportantTip" value="false" type="Boolean"/>
+        <entry key="image"
+            value="/${project_name}/resources/image/error.png" type="String"/>
+    </bean>
+    <bean feature="Button">
+        <entry key="constraints#xy_location" value="320,240" type="String"/>
+        <entry key="constraints#xy_size" value="90,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="button_exit" type="String"/>
+        <entry key="text" value="确认" type="String"/>
+    </bean>
+</content>

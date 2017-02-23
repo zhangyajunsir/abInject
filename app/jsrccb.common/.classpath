@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" output="dictionary" path="dictionary"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/cn.com.agree.ab.common"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/cn.com.agree.ab.lib"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/cn.com.agree.ab.trade.ext.persistence.impl_1.1.0.v201512220925.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/cn.com.agree.ab.trade.ext.persistence_1.1.0.v201512220925.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/cn.com.agree.commons.csv_3.3.0.v200903311625.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/com.fasterxml.jackson_2.6.3.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/com.google.common_18.0.0.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/com.google.inject_4.0.0.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/com.thoughtworks.xstream_1.4.8.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/javax.inject_1.0.0.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/javax.validation_1.0.0.GA.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/org.aopalliance_1.0.0.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/org.apache.commons.beanutils_1.9.0.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/org.apache.commons.collections_3.2.1.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/org.apache.commons.lang3_3.1.0.v201209271631.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/org.apache.commons.logging_1.0.4.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/org.eclipse.core.jobs_3.5.101.v20120113-1953.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/org.eclipse.core.resources_3.7.101.v20120125-1505.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/org.eclipse.core.runtime_3.7.0.v20110110.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/org.eclipse.equinox.common_3.6.0.v20110523.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/org.slf4j_1.7.5.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/cn.com.agree.ab.key_3.3.0.v200908311108.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/jodd_3.6.7.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/cn.com.agree.ab.trade.ext.cbod.impl_3.4.2.v201406252351.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/cn.com.agree.ab.trade.ext.cbod_3.4.2.v201212241126.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/cn.com.agree.ab.resource_3.3.0.v201601211035.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/groovy_1.6.0.v201006221906.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/ognl_3.1.2.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/cn.com.agree.ab.delta_3.3.0.v200811041800.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/cn.com.agree.ab.trade.core_3.4.0.v201604181656.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/cn.com.agree.ab.trade.local_3.3.0.v201604181656.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/cn.com.agree.ab.trade.ext.ftable.impl_3.2.0.v200909281748.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/cn.com.agree.ab.trade.ext.ftable_3.3.0.v200608141854.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/freemark_2.3.22.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/cn.com.agree.ab.task_3.7.0.v201511261806.jar"/>
+	<classpathentry kind="lib" path="/cn.com.agree.ab.lib/lib/cn.com.agree.inject_3.7.0.v201601290944.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>

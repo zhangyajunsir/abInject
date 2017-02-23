@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.w3school.com"
+	targetNamespace="http://www.w3school.com" 
+	elementFormDefault="qualified">
+
+	<xs:element name="print-cfg">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="proofs" minOccurs="1" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="proof" type="proofType" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="commit-special" minOccurs="1" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="commit-code" type="commitCodeType" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="reports" minOccurs="1" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="report"   type="reportType" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	
+	<xs:complexType name="proofType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="name"     type="nameType"/>
+				<xs:attribute name="type"     type="printType"/>
+				<xs:attribute name="preview"  type="xs:boolean"/>
+				<xs:attribute name="must"     type="xs:boolean"/>
+				<xs:attribute name="reprint"  type="xs:boolean"/>
+				<xs:attribute name="template" type="xs:string"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="nameType">
+		<xs:restriction base="xs:string">
+			<!--xs:pattern value="[a-zA-Z0-9_]{0,50}"/-->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="printType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="text"/>
+			<xs:enumeration value="pdf"/>
+			<xs:enumeration value="text2File"/>
+			<xs:enumeration value="text2LP"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="commitCodeType">
+		<xs:attribute name="name"     type="nameType"/>
+		<xs:attribute name="skip"     type="splitType" use="optional"/>
+		<xs:attribute name="add"      type="splitType" use="optional"/>
+		<xs:attribute name="grid"     type="splitType" use="optional"/>
+	</xs:complexType>
+	<xs:simpleType name="splitType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-zA-Z0-9_,]{0,200}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="reportType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="name"          type="nameType"/>
+				<xs:attribute name="type"          type="printType"/>
+				<xs:attribute name="preview"       type="xs:boolean"/>
+				<xs:attribute name="page-size"     type="xs:integer" use="optional"/>
+				<xs:attribute name="head-template" type="xs:string"  use="optional"/>
+				<xs:attribute name="body-template" type="xs:string"  use="optional"/>
+				<xs:attribute name="foot-template" type="xs:string"  use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+
+</xs:schema>

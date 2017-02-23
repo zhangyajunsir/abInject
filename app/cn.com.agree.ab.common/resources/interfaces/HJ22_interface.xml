@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interfaces 
+	xmlns="http://www.w3school.com" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3school.com ../xsd/lenovo_sop.xsd">
+	<!-- 别名映射，提供对别名和类全限定名之间的映射 -->
+	<alias-mappings>
+		<!-- domain取值inner和global,inner仅在HJ19接口内有效，global在全局有效,在不设置domain时默认为inner -->
+		<mapping alias="OHJ220DTO" real="com.woate.talkingbird.dto.OHJ220DTO" domain="inner"/>
+		<mapping alias="OHJ221DTO" real="com.woate.talkingbird.dto.OHJ221DTO"/>
+		<mapping alias="FHJ221DTO" real="com.woate.talkingbird.dto.FHJ221DTO"/>
+		<mapping alias="ERR000DTO" real="com.woate.talkingbird.dto.ERR000DTO"  domain="global"/>
+		<mapping alias="String" real="java.lang.String" domain="global"/>
+		<mapping alias="string" real="java.lang.String" domain="global"/>
+		<mapping alias="Date" real="java.util.Date" domain="global"/>
+		<mapping alias="BigDecimal" real="java.math.BigDecimal" domain="global"/>
+		<mapping alias="Integer" real="java.lang.Integer" domain="global"/>
+		<mapping alias="integer" real="java.lang.Integer" domain="global"/>
+		<mapping alias="int" real="java.lang.Integer" domain="global"/>
+	</alias-mappings>
+	<!-- 元信息池，提供对字段集中的定义 -->
+	<metadatas-pool>
+		<!-- name 字段的名称，alias字段的别名,type字段类型variable不定长，fixed定长, encoding编码集, desc描述，minLen最小长度，maxLen最大长度 len定长长度-->
+		<variable-field name="prodId" encoding="UTF-8" desc="合约代码" min-len="7" max-len="10" class="String" allow-null="false"/>
+		<variable-field name="startDate" encoding="UTF-8" desc="起始日期" min-len="8" max-len="8" class="Date" allow-null="true"/>
+		<variable-field name="endDate" encoding="UTF-8" desc="结束日期" min-len="8" max-len="8" class="Date" allow-null="true"/>
+		<variable-field name="startAmount" encoding="UTF-8" desc="起始笔数" min-len="1" max-len="2" class="Integer" allow-null="false"/>
+		<variable-field name="selectAmount" encoding="UTF-8" desc="查询笔数" min-len="1" max-len="2" class="Integer" allow-null="false"/>
+		<variable-field name="totalAmount" encoding="UTF-8" desc="总笔数" min-len="1" max-len="10" class="Integer" allow-null="true"/>
+		<variable-field name="closePrice" encoding="UTF-8" desc="结算价" min-len="1" max-len="2" class="BigDecimal" allow-null="true"/>
+		<variable-field name="date" encoding="UTF-8" desc="日期" min-len="1" max-len="2" class="Date" allow-null="true"/>
+		<variable-field name="unit" encoding="UTF-8" desc="单位" min-len="1" max-len="2" class="BigDecimal" allow-null="true"/>
+	</metadatas-pool>
+	<!-- 交易定义 name不一定是交易码，可能是组合交易的别名 他是MainMetadataLoader的名称 -->
+	<interface name="HJ22">
+		<!-- 请求节点 -->
+		<request>
+			<!-- 系统信息头 -->
+			<sys inline="headers/sys.xml"/>
+			<!-- 公共信息头 -->
+			<com inline="headers/com.xml"/>
+			<busis>
+				<!-- 交易数据 name是BusiDataMetadataLoader的名称 -->
+				<busi name="HJ22">
+					<!-- 交易数据头 -->
+					<header inline="headers/busi.xml"/>
+					<object name="OHJ220" alias="OHJ220" type="bean" desc="HJ22请求对象" encoding="UTF-8" wrap-class="OHJ220DTO">
+						<!-- 对元信息池的定义进行引用 -->
+						<field ref="prodId" alias="prodId_REQ"/>
+						<field ref="startDate" alias="startDate_REQ"/>
+						<field ref="endDate" alias="endDate_REQ"/>
+						<field ref="startAmount" alias="startAmount_REQ"/>
+						<field ref="selectAmount" alias="selectAmount_REQ"/>
+					</object>
+				</busi>
+			</busis>
+		</request>
+		<!-- 应答节点 -->
+		<response>
+			<!-- 系统信息头 -->
+			<sys inline="headers/sys.xml"/>
+			<!-- 公共信息头 -->
+			<com inline="headers/com.xml"/>
+			<busis>
+				<busi name="HJ22">
+					<!-- 交易数据头 -->
+					<header inline="headers/busi.xml"/>
+					<object name="OHJ221" alias="OHJ221" type="bean" desc="HJ22应答对象" encoding="UTF-8" wrap-class="OHJ221DTO">
+						<field ref="totalAmount" alias="totalAmount_RSP"/>
+					</object>
+					<object name="FHJ221" alias="FHJ221" type="bean" desc="HJ22应答对象" encoding="UTF-8" wrap-class="FHJ221DTO">
+						<!-- 对元信息池的定义进行引用 -->
+						<field ref="closePrice" alias="closePrice_RSP"/>
+						<field ref="date" alias="date_RSP"/>
+						<field ref="unit" alias="unit_RSP"/>
+					</object>
+				</busi>
+			</busis>
+		</response>
+		<!--异常节点-->
+		<exception>
+			<!-- 系统信息头 -->
+			<sys inline="headers/sys.xml"/>
+			<!-- 公共信息头 -->
+			<com inline="headers/com.xml"/>
+			<busis>
+				<busi name="HJ22">
+					<!-- 交易数据头 -->
+					<header inline="headers/busi.xml"/>
+					<object name="ERR000" alias="ERR000" type="bean" desc="应答对象" encoding="UTF-8" wrap-class="ERR000DTO">
+						<variable-field name="errorNo" alias="ERROR_NO" desc="错误序号" min-len="0" max-len="0" class="String" allow-null="true"/>
+						<variable-field name="errorCode" alias="ERROR_CODE" desc="错误码" min-len="7" max-len="7" class="String" allow-null="false"/>
+						<variable-field name="errorMsg" alias="ERROR_MESSAGE" desc="错误信息" min-len="1" max-len="200" class="String" allow-null="false"/>
+					</object>
+				</busi>
+			</busis>
+		</exception>
+	</interface>
+</interfaces>

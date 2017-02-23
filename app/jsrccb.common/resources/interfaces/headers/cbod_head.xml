@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interfaces 
+	xmlns="http://www.w3school.com" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3school.com ../../xsd/ibm_cbod_header.xsd">
+	<!-- 别名映射 -->
+	<alias-mappings>
+		<!-- domain取值inner和global,inner仅在接口内有效，global在全局有效,在不设置domain时默认为inner -->
+		<mapping alias="String"         real="java.lang.String"              domain="global"/>
+		<mapping alias="Date"           real="java.util.Date"                domain="global"/>
+		<mapping alias="BigDecimal"     real="java.math.BigDecimal"          domain="global"/>
+		<mapping alias="Integer"        real="java.lang.Integer"             domain="global"/>
+		<mapping alias="Byte"           real="java.lang.Byte"                domain="global"/>
+		<mapping alias="ByteBuffer"     real="java.nio.ByteBuffer"           domain="global"/>
+		<mapping alias="StringArray"    real="[Ljava.lang.String"            domain="global"/>
+		<mapping alias="ObjectArray"    real="[Ljava.lang.Object"            domain="global"/>
+	</alias-mappings>
+	<!-- 元信息池 -->
+	<metadatas-pool>
+		<fixed-field name="INM_SYS_TX_CODE"     encoding="EBCDIC"    len="4"  fill-style="right" class="String"  alias="" desc="CICS交易代号"       value-mode="constant" value="TCCB"/>
+		<fixed-field name="INM_BUS_OP_CODE"     encoding="EBCDIC"    len="5"  fill-style="right" class="String"  alias="" desc="前端交易代号"/>
+		<!-- INM_LL为高位优先字节组后两个字节 -->
+		<fixed-field name="INM_LL"              encoding="ISO8859-1" len="2"  fill-style="left"  class="Integer" alias="" desc="含本栏位之输入讯息总长度" value-mode="inner"/>
+		<fixed-field name="INM_BRANCH_ID"       encoding="EBCDIC"    len="9"  fill-style="right" class="String"  alias="" desc="网点代号"/>
+		<fixed-field name="INM_TERM_TYP"        encoding="EBCDIC"    len="1"  fill-style="right" class="String"  alias="" desc="终端机类别"         value-mode="default"  value="A"/>
+		<fixed-field name="INM_LAN_ID"          encoding="EBCDIC"    len="2"  fill-style="right" class="String"  alias="" desc="区域网络代号"       value-mode="default"  value="01"/>
+		<fixed-field name="INM_TERM_SRL"        encoding="EBCDIC"    len="3"  fill-style="left"  class="String"  alias="" desc="端末系统序号"       fill-char="0"/>
+		<fixed-field name="INM_BUS_CODE"        encoding="EBCDIC"    len="3"  fill-style="right" class="String"  alias="" desc="业务代号"/>
+		<fixed-field name="INM_APP_TX_CODE"     encoding="EBCDIC"    len="4"  fill-style="right" class="String"  alias="" desc="交易处理代号"/>
+		<fixed-field name="INM_SUB_TX_CODE"     encoding="EBCDIC"    len="2"  fill-style="right" class="String"  alias="" desc="交易处理子代号"/>
+		<fixed-field name="INM_TX_TYP"          encoding="EBCDIC"    len="1"  fill-style="right" class="String"  alias="" desc="交易处理类别"       value-mode="default"  value="0"/>
+		<fixed-field name="INM_TX_MODE"         encoding="EBCDIC"    len="1"  fill-style="right" class="String"  alias="" desc="交易模式"           value-mode="default"  value="0"/>
+		<fixed-field name="INM_CHANEL_FLG"      encoding="EBCDIC"    len="2"  fill-style="right" class="String"  alias="" desc="渠道标志"           value-mode="default"  value="01"/>
+		<fixed-field name="INM_TELLER_ID"       encoding="EBCDIC"    len="12" fill-style="right" class="String"  alias="" desc="柜员代号"/>
+		<!-- 整形转高位优先字节数组 -->
+		<fixed-field name="INM_MSG_STATUS"      encoding="ISO8859-1" len="4"  fill-style="left"  class="Integer" alias="" desc="讯息处理状态"       value-mode="default"  value="32768"/>
+		<fixed-field name="INM_BUSINESS_CTL"    encoding="EBCDIC"    len="2"  fill-style="left"  class="String"  alias="" desc="业务控管类别"       value-mode="default"  value="14"/>
+		<fixed-field name="INM_MAC_OFFSET"      encoding="ISO8859-1" len="2"  fill-style="left"  class="Integer" alias="" desc="压码资料起始位置"/>
+		<fixed-field name="INM_MAC_LL"          encoding="ISO8859-1" len="2"  fill-style="left"  class="Integer" alias="" desc="压码资料长度"/>
+		<fixed-field name="INM_MAC_VALUE"       encoding="EBCDIC"    len="4"  fill-style="right" class="String"  alias="" desc="压码值"/>
+		<fixed-field name="INM_KEY_SYNC_VALUE"  encoding="EBCDIC"    len="4"  fill-style="right" class="String"  alias="" desc="KEY同步检查值"/>
+		<fixed-field name="INM_FILLER"          encoding="EBCDIC"    len="3"  fill-style="right" class="String"  alias="" desc="保留位"/>
+		<fixed-field name="INM_FINGER_CK_FLG"   encoding="EBCDIC"    len="1"  fill-style="right" class="String"  alias="" desc="指纹识别检查标志"/>
+		<fixed-field name="INM_PWD_CK_FLG"      encoding="EBCDIC"    len="1"  fill-style="right" class="String"  alias="" desc="客户密码检查标志位"/>
+		<fixed-field name="INM_PAYPWD_CK_FLG"   encoding="EBCDIC"    len="1"  fill-style="right" class="String"  alias="" desc="支付密码检查标志位"/>
+		<fixed-field name="INM_EC_BBN"          encoding="EBCDIC"    len="3"  fill-style="right" class="String"  alias="" desc="冲正系统别"/>
+		<fixed-field name="INM_FEE_MOD"         encoding="EBCDIC"    len="1"  fill-style="right" class="String"  alias="" desc="通兑收费模式"/>
+		<fixed-field name="INM_EBCDIC_CV_FLG"   encoding="EBCDIC"    len="1"  fill-style="right" class="String"  alias="" desc="EBCDIC码"/>
+		<fixed-field name="INM_1LVL_FE_ID"      encoding="EBCDIC"    len="1"  fill-style="right" class="String"  alias="" desc="前置标志位"         value-mode="default"  value="2"/>
+		<fixed-field name="INM_RESERVE_AREA2"   encoding="EBCDIC"    len="8"  fill-style="right" class="String"  alias="" desc="资料保留区2"/>
+		<fixed-field name="INM_OPTIONAL_MAP"    encoding="ISO8859-1" len="8"  fill-style="right" class="String"  alias="" desc="BITMAP"             value-mode="inner"/>
+                                                                     
+		<fixed-field name="OPMFMH"              encoding="ISO8859-1" len="3"  fill-style="left"  class="ByteBuffer" alias="" desc="函数管理头"/>
+		<fixed-field name="OPM_FILLER"          encoding="EBCDIC"    len="5"  fill-style="right" class="String"  alias="" desc="保留位"/>
+		<fixed-field name="OPM_LL"              encoding="ISO8859-1" len="2"  fill-style="left"  class="Integer" alias="" desc="含本栏位之输入讯息总长度"/>
+		<fixed-field name="OPM_RESP_CODE"       encoding="EBCDIC"    len="1"  fill-style="right" class="String"  alias="" desc="核心系统回应状况码"/>
+		<fixed-field name="OPM_TX_STATUS"       encoding="EBCDIC"    len="1"  fill-style="right" class="String"  alias="" desc="交易处理状态"/>
+		<fixed-field name="OPM_MSG_STATUS"      encoding="ISO8859-1" len="4"  fill-style="right" class="Integer" alias="" desc="讯息处理状态"/>
+		<fixed-field name="OPM_DATA_COMPRESS"   encoding="EBCDIC"    len="1"  fill-style="right" class="String"  alias="" desc="资料是否压缩"/>
+		<fixed-field name="OPM_HOST_BUS_DT"     encoding="EBCDIC"    len="8"  fill-style="right" class="String"  alias="" desc="交易营业日期"/>
+		<fixed-field name="OPM_HOST_CPU_DT"     encoding="EBCDIC"    len="8"  fill-style="right" class="String"  alias="" desc="交易处理日期"/>
+		<fixed-field name="OPM_HOST_PROC_TIME"  encoding="EBCDIC"    len="9"  fill-style="right" class="String"  alias="" desc="交易处理时间"/>
+		<fixed-field name="OPM_MAC_OFFSET"      encoding="ISO8859-1" len="2"  fill-style="left"  class="Integer" alias="" desc="压码资料起始位置"/>
+		<fixed-field name="OPM_MAC_LL"          encoding="ISO8859-1" len="2"  fill-style="left"  class="Integer" alias="" desc="压码资料长度"/>
+		<fixed-field name="OPM_MAC_VALUE"       encoding="EBCDIC"    len="4"  fill-style="right" class="String"  alias="" desc="压码值"/>
+		<fixed-field name="OPM_KEY_SYNC_VALUE"  encoding="EBCDIC"    len="4"  fill-style="right" class="String"  alias="" desc="KEY同步检查值"/>
+		<fixed-field name="OPM_OPTIONAL_MAP"    encoding="ISO8859-1" len="8"  fill-style="right" class="ByteBuffer"  alias="" desc="BITMAP"/>
+	</metadatas-pool>
+	<interface name="head">
+		<request>
+			<field name="INM_SYS_TX_CODE"    alias="INM_SYS_TX_CODE"/>
+			<field name="INM_BUS_OP_CODE"    alias="INM_BUS_OP_CODE"                value="context.tradeCodeDM.code"/>
+			<field name="INM_LL"             alias="INM_LL"/>
+			<field name="INM_BRANCH_ID"      alias="INM_BRANCH_ID"                  value="tellerInfo.G_QBR"/>
+			<field name="INM_TERM_TYP"       alias="INM_TERM_TYP"/>
+			<field name="INM_LAN_ID"         alias="INM_LAN_ID"/>
+			<field name="INM_TERM_SRL"       alias="INM_TERM_SRL"                   value="tellerInfo.G_TTYNO"/>
+			<field name="INM_BUS_CODE"       alias="INM_BUS_CODE"                   value="commCodeDMMap.get(currentCommCode).transCode.substring(0,3)"/>
+			<field name="INM_APP_TX_CODE"    alias="INM_APP_TX_CODE"                value="commCodeDMMap.get(currentCommCode).transCode.substring(3,7)"/>
+			<field name="INM_SUB_TX_CODE"    alias="INM_SUB_TX_CODE"                value="commCodeDMMap.get(currentCommCode).transCode.substring(7,9)"/>
+			<field name="INM_TX_TYP"         alias="INM_TX_TYP">
+				<mapping express-id="0" trade-code="60701" value="tempArea.TX_TYP"/>
+			</field>
+			<field name="INM_TX_MODE"        alias="INM_TX_MODE"/>
+			<field name="INM_CHANEL_FLG"     alias="INM_CHANEL_FLG"/>
+			<field name="INM_TELLER_ID"      alias="INM_TELLER_ID"                  value="tellerInfo.G_TELLER"/>
+			<field name="INM_MSG_STATUS"     alias="INM_MSG_STATUS"                 value="innerArea.MSG_STATUS"/>
+			<field name="INM_BUSINESS_CTL"   alias="INM_BUSINESS_CTL"               value="innerArea.BUSINESS_CTL">
+			</field>
+			<field name="INM_MAC_OFFSET"     alias="INM_MAC_OFFSET"/>
+			<field name="INM_MAC_LL"         alias="INM_MAC_LL"/>
+			<field name="INM_MAC_VALUE"      alias="INM_MAC_VALUE"/>
+			<field name="INM_KEY_SYNC_VALUE" alias="INM_KEY_SYNC_VALUE"/>
+			<field name="INM_FILLER"         alias="INM_FILLER"/>
+			<field name="INM_FINGER_CK_FLG"  alias="INM_FINGER_CK_FLG"/>
+			<field name="INM_PWD_CK_FLG"     alias="INM_PWD_CK_FLG"/>
+			<field name="INM_PAYPWD_CK_FLG"  alias="INM_PAYPWD_CK_FLG"/>
+			<field name="INM_EC_BBN"         alias="INM_EC_BBN"/>
+			<field name="INM_FEE_MOD"        alias="INM_FEE_MOD"/>
+			<field name="INM_EBCDIC_CV_FLG"  alias="INM_EBCDIC_CV_FLG"/>
+			<field name="INM_1LVL_FE_ID"     alias="INM_1LVL_FE_ID"/>
+			<field name="INM_RESERVE_AREA2"  alias="INM_RESERVE_AREA2"/>
+			<field name="INM_OPTIONAL_MAP"   alias="INM_OPTIONAL_MAP"/>
+		</request>
+		<response>
+			<field name="OPMFMH"             alias="OPMFMH"/>
+			<field name="OPM_FILLER"         alias="OPM_FILLER"/>
+			<field name="OPM_LL"             alias="OPM_LL"                         value="innerArea.ALL_LEN"/>
+			<field name="OPM_RESP_CODE"      alias="OPM_RESP_CODE"                  value="innerArea.RESP_CODE"/>
+			<field name="OPM_TX_STATUS"      alias="OPM_TX_STATUS"                  value="innerArea.TX_STATUS"/>
+			<field name="OPM_MSG_STATUS"     alias="OPM_MSG_STATUS"                 value="innerArea.MSG_STATUS"/>
+			<field name="OPM_DATA_COMPRESS"  alias="OPM_DATA_COMPRESS"/>
+			<field name="OPM_HOST_BUS_DT"    alias="OPM_HOST_BUS_DT"                value="innerArea.G_DATE"/>
+			<field name="OPM_HOST_CPU_DT"    alias="OPM_HOST_CPU_DT"                value="innerArea.HOST_CPU_DT"/>
+			<field name="OPM_HOST_PROC_TIME" alias="OPM_HOST_PROC_TIME"             value="innerArea.HOST_PROC_TIME"/>
+			<field name="OPM_MAC_OFFSET"     alias="OPM_MAC_OFFSET"/>
+			<field name="OPM_MAC_LL"         alias="OPM_MAC_LL"/>
+			<field name="OPM_MAC_VALUE"      alias="OPM_MAC_VALUE"/>
+			<field name="OPM_KEY_SYNC_VALUE" alias="OPM_KEY_SYNC_VALUE"/>
+			<field name="OPM_OPTIONAL_MAP"   alias="OPM_OPTIONAL_MAP"               value="innerArea.OPTIONAL_MAP"/>
+		</response>
+	</interface>
+</interfaces>

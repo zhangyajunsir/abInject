@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interfaces 
+	xmlns="http://www.w3school.com" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3school.com ../../xsd/lenovo_sop_header.xsd">
+	<!-- 别名映射，提供对别名和类全限定名之间的映射 -->
+	<alias-mappings>
+		<!-- domain取值inner和global,inner仅在接口内有效，global在全局有效,在不设置domain时默认为inner -->
+	</alias-mappings>
+	<!-- 元信息池 -->
+	<metadatas-pool>
+		<fixed-field name="SHJBCD" desc="数据包长度" len="2" fill-style="right" class="Integer"/>
+		<fixed-field name="BAWMAC" desc="报文MAC" len="16" fill-style="right" class="String" value="5DD3CC8FD131A03D" value-mode="constant"/>
+		<fixed-field name="MACJGH" desc="MAC机构号" len="4" fill-style="right" class="String" value="9489" value-mode="constant"/>
+		<fixed-field name="PINZHZ" desc="PIN种子" len="16" fill-style="right" class="String"/>
+		<fixed-field name="CHNLNO" desc="渠道来源" len="3" fill-style="right" class="String" value="489" value-mode="constant"/>
+		<fixed-field name="CHNLTO" desc="渠道去向" len="3" fill-style="right" class="String" value="489" value-mode="constant"/>
+		<fixed-field name="MACFLG" desc="加密标志" len="1" fill-style="right" class="Integer" value="1" value-mode="constant"/>
+		<fixed-field name="PINFLG" desc="PIN标志" len="1" fill-style="right" class="Integer" value="0" value-mode="constant"/>
+		<fixed-field name="COMFLG" desc="组合标志" len="1" fill-style="right" class="Integer" value="0" value-mode="constant"/>
+		<fixed-field name="ZUJFUW" desc="主机服务名" len="9" fill-style="right" class="String" value="waiwei_02" value-mode="constant"/>
+		<fixed-field name="XXJSBZ" desc="信息结束标志" len="1" fill-style="right" class="String"/>
+		<fixed-field name="SJBSXH" desc="报文序号" len="2" fill-style="right" class="Integer"/>
+		<fixed-field name="JIOYBZ" desc="校验标志" len="1" fill-style="right" class="String"/>
+		<fixed-field name="MIYBBH" desc="密钥版本号" len="4" fill-style="right" class="Integer"/>
+		<fixed-field name="QUDAOO" desc="系统标识符" len="3" fill-style="right" class="String" value="489" value-mode="default"/>
+		<fixed-field name="MIMPYL" desc="密码偏移量" len="20" fill-style="right" class="String"/>
+		<fixed-field name="ZHHPYL" desc="帐号偏移量" len="20" fill-style="right" class="String"/>
+	</metadatas-pool>
+	<request>
+		<field ref="SHJBCD" alias="SHJBCD_REQ"/>
+		<field ref="BAWMAC" alias="BAWMAC_REQ"/>
+		<field ref="MACJGH" alias="MACJGH_REQ"/>
+		<field ref="PINZHZ" alias="PINZHZ_REQ"/>
+		<field ref="CHNLNO" alias="CHNLNO_REQ"/>
+		<field ref="CHNLTO" alias="CHNLTO_REQ"/>
+		<field ref="MACFLG" alias="MACFLG_REQ"/>
+		<field ref="PINFLG" alias="PINFLG_REQ"/>
+		<field ref="COMFLG" alias="COMFLG_REQ"/>
+		<field ref="ZUJFUW" alias="ZUJFUW_REQ"/>
+		<field ref="XXJSBZ" alias="XXJSBZ_REQ"/>
+		<field ref="SJBSXH" alias="SJBSXH_REQ"/>
+		<field ref="JIOYBZ" alias="JIOYBZ_REQ"/>
+		<field ref="MIYBBH" alias="MIYBBH_REQ"/>
+		<field ref="QUDAOO" alias="QUDAOO_REQ"/>
+		<field ref="MIMPYL" alias="MIMPYL_REQ"/>
+		<field ref="ZHHPYL" alias="ZHHPYL_REQ"/>
+	</request>
+	<response>
+		<field ref="SHJBCD" alias="SHJBCD_RSP"/>
+		<field ref="BAWMAC" alias="BAWMAC_RSP"/>
+		<field ref="MACJGH" alias="MACJGH_RSP"/>
+		<field ref="PINZHZ" alias="PINZHZ_RSP"/>
+		<field ref="CHNLNO" alias="CHNLNO_RSP"/>
+		<field ref="CHNLTO" alias="CHNLTO_RSP"/>
+		<field ref="MACFLG" alias="MACFLG_RSP"/>
+		<field ref="PINFLG" alias="PINFLG_RSP"/>
+		<field ref="COMFLG" alias="COMFLG_RSP"/>
+		<field ref="ZUJFUW" alias="ZUJFUW_RSP"/>
+		<field ref="XXJSBZ" alias="XXJSBZ_RSP"/>
+		<field ref="SJBSXH" alias="SJBSXH_RSP"/>
+		<field ref="JIOYBZ" alias="JIOYBZ_RSP"/>
+		<field ref="MIYBBH" alias="MIYBBH_RSP"/>
+		<field ref="QUDAOO" alias="QUDAOO_RSP"/>
+		<field ref="MIMPYL" alias="MIMPYL_RSP"/>
+		<field ref="ZHHPYL" alias="ZHHPYL_RSP"/>
+	</response>
+	<exception>
+		<field ref="SHJBCD" alias="SHJBCD_EXP"/>
+		<field ref="BAWMAC" alias="BAWMAC_EXP"/>
+		<field ref="MACJGH" alias="MACJGH_EXP"/>
+		<field ref="PINZHZ" alias="PINZHZ_EXP"/>
+		<field ref="CHNLNO" alias="CHNLNO_EXP"/>
+		<field ref="CHNLTO" alias="CHNLTO_EXP"/>
+		<field ref="MACFLG" alias="MACFLG_EXP"/>
+		<field ref="PINFLG" alias="PINFLG_EXP"/>
+		<field ref="COMFLG" alias="COMFLG_EXP"/>
+		<field ref="ZUJFUW" alias="ZUJFUW_EXP"/>
+		<field ref="XXJSBZ" alias="XXJSBZ_EXP"/>
+		<field ref="SJBSXH" alias="SJBSXH_EXP"/>
+		<field ref="JIOYBZ" alias="JIOYBZ_EXP"/>
+		<field ref="MIYBBH" alias="MIYBBH_EXP"/>
+		<field ref="QUDAOO" alias="QUDAOO_EXP"/>
+		<field ref="MIMPYL" alias="MIMPYL_EXP"/>
+		<field ref="ZHHPYL" alias="ZHHPYL_EXP"/>
+	</exception>
+</interfaces>

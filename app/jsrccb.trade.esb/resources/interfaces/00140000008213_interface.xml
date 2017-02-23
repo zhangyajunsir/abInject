@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interfaces 
+	xmlns="http://www.w3school.com" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3school.com ../xsd/ibm_xml.xsd">
+	<!-- 别名映射 -->
+	<alias-mappings>
+		<!-- domain取值inner和global,inner仅在接口内有效，global在全局有效,在不设置domain时默认为inner -->
+	</alias-mappings>
+	<!-- 元信息池 -->
+	<metadatas-pool>
+		<variable-field name="regist_id"   		alias="" encoding="GBK" min-len="0" max-len="20"  class="String" allow-null="false" desc="注册号码"/>
+		<variable-field name="account"   		alias="" encoding="GBK" min-len="0" max-len="26"  class="String" allow-null="false" desc="账号"/>
+
+	</metadatas-pool>
+	<interface name="00140000008213">
+		<request>
+			<mappings>
+				<!-- 取值映射 -->
+				<field name="regist_id"   	  	        		alias="regist_id"   	  	     		value="uiData['text_注册号码|text']"/>
+				<field name="account"   		  	        	alias="account"   		  	     		value="uiData['text_账号|text']"/>
+			</mappings>
+			<service_header inline="headers/esbxml_service.xml"/>
+			<ext_attributes inline="headers/esbxml_extatts.xml"/>
+			<req_template>
+				<![CDATA[
+					<?xml version="1.0" encoding="UTF-8"?>
+					<Service>
+						${innerArea.service_header}
+						<Service_Body>
+							${innerArea.ext_attributes}
+							<request>
+								<regist_id>${innerArea.mappings.regist_id}</regist_id>
+								<account>${innerArea.mappings.account}</account>
+							</request>
+						</Service_Body>
+					</Service>
+				]]>
+			</req_template>
+		</request>
+		<response>
+			<mappings>
+			</mappings>
+			<service        inline="headers/esbxml_service.xml"/>
+			<ext_attributes inline="headers/esbxml_extatts.xml"/>
+			<rsp_wrap_class alias="Map"/>
+		</response>
+	</interface>
+</interfaces>

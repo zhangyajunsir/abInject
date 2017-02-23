@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="GBK"?>
+<content>
+    <entry key="layout#layout" value="xy" type="String"/>
+    <entry key="constraints#xy_location" value="0,0" type="String"/>
+    <entry key="constraints#xy_size" value="640,480" type="String"/>
+    <entry key="enable" value="true" type="Boolean"/>
+    <entry key="visible" value="true" type="Boolean"/>
+    <entry key="title" value="" type="String"/>
+    <entry key="parent_trade" value="" type="String"/>
+    <entry key="help" value="" type="String"/>
+    <entry key="dictionary_key" value="" type="String"/>
+    <entry key="methods" value="text_code_OnBlur" type="String"/>
+    <bean feature="Text">
+        <entry key="constraints#xy_location" value="10,50" type="String"/>
+        <entry key="constraints#xy_size" value="140,28" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="text_code" type="String"/>
+    </bean>
+    <bean feature="MultiTradeComposite">
+        <entry key="constraints#xy_location" value="10,105" type="String"/>
+        <entry key="constraints#xy_size" value="610,335" type="String"/>
+        <entry key="dictionary_key" value="" type="String"/>
+        <entry key="id" value="multiTradeComposite" type="String"/>
+        <entry key="backgroundImage" value="" type="String"/>
+        <entry key="backgroundImageType" value="平铺" type="String"/>
+        <entry key="singleton" value="false" type="Boolean"/>
+        <entry key="background" value="192,192,192" type="String"/>
+        <entry key="selbackground" value="255,255,255" type="String"/>
+        <entry key="foreground" value="0,0,0" type="String"/>
+        <entry key="selforeground" value="0,0,0" type="String"/>
+    </bean>
+</content>

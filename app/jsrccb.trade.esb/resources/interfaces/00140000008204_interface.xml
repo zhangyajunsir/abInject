@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interfaces 
+	xmlns="http://www.w3school.com" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3school.com ../xsd/ibm_xml.xsd">
+	<!-- 别名映射 -->
+	<alias-mappings>
+		<!-- domain取值inner和global,inner仅在接口内有效，global在全局有效,在不设置domain时默认为inner -->
+		<mapping alias="CD00140000008202DM"      real="jsrccb.trade.esb.dm.rsp.CD00140000008202DM" domain="inner"/>
+	</alias-mappings>
+	<!-- 元信息池 -->
+	<metadatas-pool>
+		<variable-field name="regist_id"   		alias="" encoding="GBK" min-len="0" max-len="20"  class="String" allow-null="false" desc="注册号码1"/>
+		<variable-field name="cid" 		        alias="" encoding="GBK" min-len="0" max-len="12"  class="String" allow-null="false" desc="客户号" />
+
+		<variable-field name="regist_id_"   		alias="" encoding="GBK" min-len="0" max-len="20"  class="String" allow-null="false" desc="注册号码1"/>
+		<variable-field name="cid_" 		        alias="" encoding="GBK" min-len="0" max-len="12"  class="String" allow-null="false" desc="客户号" />
+
+	</metadatas-pool>
+	<interface name="00140000008204">
+		<request>
+			<mappings>
+				<!-- 取值映射 -->
+				<field name="regist_id"       		alias="regist_id"    		value="uiData['text_注册号码1|text']"/>
+				<field name="cid"       		alias="cid"    		value="uiData['text_客户号|text']"/>
+			</mappings>
+			<service_header inline="headers/esbxml_service.xml"/>
+			<ext_attributes inline="headers/esbxml_extatts.xml"/>
+			<req_template>
+				<![CDATA[
+					<?xml version="1.0" encoding="UTF-8"?>
+					<Service>
+						${innerArea.service_header}
+						<Service_Body>
+							${innerArea.ext_attributes}
+							<request>
+								<regist_id>${innerArea.mappings.regist_id}</regist_id>
+								<cid>${innerArea.mappings.cid}</cid>
+							</request>
+						</Service_Body>
+					</Service>
+				]]>
+			</req_template>
+		</request>
+		<response>
+			<mappings>
+				<field name="cid"       		alias="cid_"    		value="storeData.cid"/>
+				<field name="regist_id"       		alias="regist_id_"    		value="storeData.regist_id"/>
+			</mappings>
+			<service        inline="headers/esbxml_service.xml"/>
+			<ext_attributes inline="headers/esbxml_extatts.xml"/>
+			<rsp_wrap_class alias="Map"/>
+		</response>
+	</interface>
+</interfaces>

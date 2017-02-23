@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.w3school.com"
+	targetNamespace="http://www.w3school.com" 
+	elementFormDefault="qualified">
+
+	<xs:element name="interfaces">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="alias-mappings" minOccurs="1" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="mapping" type="aliasType" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="metadatas-pool" minOccurs="1" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="variable-field" type="variableFieldType" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element name="fixed-field"    type="fixedFieldType"    minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="interface" minOccurs="1" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="request"   type="requestType"/>
+							<xs:element name="response"  type="responseType"/>
+						</xs:sequence>
+						<xs:attribute name="name" type="tradeNameType" use="required"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- 别名类型 -->
+	<xs:complexType name="aliasType">
+		<xs:attribute name="alias" type="xs:string"/>
+		<xs:attribute name="real"  type="xs:string"/>
+		<xs:attribute name="domain">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="global"/>
+					<xs:enumeration value="inner"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:simpleType name="nameType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-zA-Z0-9_]{0,20}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tradeNameType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-zA-Z0-9_]{0,50}"/> <!-- service_id或其它 -->
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="onlyTextType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!--内联类型定义 -->
+	<xs:simpleType name="inlineType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<!-- 基础元信息字段名称类型定义 -->
+	<xs:simpleType name="fieldNameType">
+		<xs:restriction base="nameType"/>
+	</xs:simpleType>
+	<!-- 基础元信息字段别名类型定义 -->
+	<xs:simpleType name="fieldAliasType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-zA-Z0-9 _]{0,30}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 基础元信息字段类型定义 -->
+	<xs:simpleType name="fieldTypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="variable"/>
+			<xs:enumeration value="fiexd"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 基础元信息字段描述定义 -->
+	<xs:simpleType name="fieldDescType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\w{0,20}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 基础元信息字段描述定义 -->
+	<xs:simpleType name="fieldLenType">
+		<xs:restriction base="xs:integer"/>
+	</xs:simpleType>
+	<!-- 基础元信息字段Java类型定义 -->
+	<xs:simpleType name="fieldClassType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="String"/>
+			<xs:enumeration value="Integer"/>
+			<xs:enumeration value="BigDecimal"/>
+			<xs:enumeration value="Date"/>
+			<xs:enumeration value="ByteBuffer"/>
+			<xs:enumeration value="Money"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 基础元信息字段允许为null类型定义 -->
+	<xs:simpleType name="fieldAllowNullType">
+		<xs:restriction base="xs:boolean"/>
+	</xs:simpleType>
+	<!-- 基础元信息字段允许为填充样式类型定义 -->
+	<xs:simpleType name="fieldFillStyleType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="right"/>
+			<xs:enumeration value="left"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 编码属性定义 -->
+	<xs:simpleType name="encodingType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GBK"/>
+			<xs:enumeration value="GB2312"/>
+			<xs:enumeration value="ISO8859-1"/>
+			<xs:enumeration value="UTF-8"/>
+			<xs:enumeration value="Big5"/>
+			<xs:enumeration value="EBCDIC"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 数据类型 -->
+	<xs:simpleType name="valueModeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="constant"/>
+			<xs:enumeration value="default"/>
+			<xs:enumeration value="user"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!-- 交易数据对象名称属性定义 -->
+	<xs:simpleType name="objectNameType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Z0-9]{20}"/> <!-- FORMID或其它 -->
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 交易数据对象类型属性定义 -->
+	<xs:simpleType name="objectTypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="bean"/>
+			<xs:enumeration value="form"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 交易数据对象描述属性定义 -->
+	<xs:simpleType name="objectDescType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="200"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 交易数据对象编码属性定义 -->
+	<xs:simpleType name="objectEncodingType">
+		<xs:restriction base="encodingType"/>
+	</xs:simpleType>
+	<!-- 交易数据对象包装类属性定义 -->
+	<xs:simpleType name="objectWrapClassType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<!-- 列模式类型 -->
+	<xs:simpleType name="columnModeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="crosswise"/>
+			<xs:enumeration value="vertical"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 表格itemBit -->
+	<xs:simpleType name="itemBitType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9,]{0,1000}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!-- 定长字段节点定义 -->
+	<xs:complexType name="fixedFieldType">
+		<xs:attribute name="name"       type="fieldNameType"      use="required"/>
+		<xs:attribute name="alias"      type="fieldAliasType"     use="optional"/>
+		<xs:attribute name="desc"       type="fieldDescType"                     default="字段描述"/>
+		<xs:attribute name="encoding"   type="encodingType"       use="optional" default="UTF-8"/>
+		<xs:attribute name="fill-style" type="fieldFillStyleType" use="optional"/>
+		<xs:attribute name="len"        type="fieldLenType"       use="required"/>
+		<xs:attribute name="class"      type="fieldClassType"     use="required"/>
+		<xs:attribute name="value-mode" type="valueModeType"/>
+		<xs:attribute name="value"      type="xs:string"/>
+		<xs:attribute name="fill-char"  type="xs:string"          use="optional"/>
+		<xs:attribute name="format"     type="xs:string"          use="optional"/>
+		<xs:attribute name="scale"      type="xs:integer"         use="optional"/>
+	</xs:complexType>
+	<!-- 不定长字段节点定义 -->
+	<xs:complexType name="variableFieldType">
+		<xs:attribute name="name"       type="fieldNameType"      use="required"/>
+		<xs:attribute name="alias"      type="fieldAliasType"     use="optional"/>
+		<xs:attribute name="desc"       type="fieldDescType"                     default="字段描述"/>
+		<xs:attribute name="encoding"   type="encodingType"       use="optional" default="UTF-8"/>
+		<xs:attribute name="max-len"    type="fieldLenType"       use="required"/>
+		<xs:attribute name="min-len"    type="fieldLenType"       use="required"/>
+		<xs:attribute name="allow-null" type="fieldAllowNullType" use="required"/>
+		<xs:attribute name="class"      type="fieldClassType"     use="required"/>
+		<xs:attribute name="value-mode" type="valueModeType"/>
+		<xs:attribute name="value"      type="xs:string"/>
+		<xs:attribute name="format"     type="xs:string"          use="optional"/>
+		<xs:attribute name="scale"      type="xs:integer"         use="optional"/>
+	</xs:complexType>
+	<!-- 交易数据对象字段引用定义 -->
+	<xs:complexType name="referFieldType">
+		<xs:sequence minOccurs="0" maxOccurs="99">
+			<xs:element name="mapping" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="express-id"  type="xs:integer"     use="required"/>
+					<xs:attribute name="trade-code"  type="xs:string"      use="required"/>
+					<xs:attribute name="value"       type="xs:string"      use="required"/>
+					<xs:attribute name="value-mode"  type="valueModeType"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name"       type="xs:string"          use="required"/>
+		<xs:attribute name="alias"      type="fieldAliasType"     use="required"/>
+		<xs:attribute name="desc"       type="fieldDescType"                     default="引用字段描述"/>
+		<xs:attribute name="value"      type="xs:string"          use="optional"/>
+		<xs:attribute name="value-mode" type="valueModeType"/>
+	</xs:complexType>
+	<!-- 交易数据对象定义 -->
+	<xs:complexType name="objectType">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="field"          type="referFieldType"       minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="variable-field" type="variableFieldType"    minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="fixed-field"    type="fixedFieldType"       minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="object"         type="objectType"           minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mapping"                                    minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="express-id"  type="xs:integer"     use="required"/>
+					<xs:attribute name="trade-code"  type="xs:string"      use="required"/>
+					<xs:attribute name="value"       type="xs:string"      use="required"/>
+					<xs:attribute name="item-bit"    type="itemBitType"    use="optional"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name"       type="xs:string"           use="required"/>
+		<xs:attribute name="alias"      type="fieldAliasType"      use="optional"/>
+		<xs:attribute name="desc"       type="objectDescType"                     default="对象描述"/>
+		<xs:attribute name="encoding"   type="encodingType"        use="optional" default="UTF-8"/>
+		<xs:attribute name="value"      type="xs:string"           use="optional"/>
+		<xs:attribute name="type"       type="objectTypeType"      use="required"/>
+		<xs:attribute name="wrap-class" type="objectWrapClassType" use="required"/>
+		<xs:attribute name="count"      type="xs:string"           use="optional"/>
+		<xs:attribute name="col-mode"   type="columnModeType"      use="optional" default="crosswise"/>
+	</xs:complexType>
+	
+	
+	<!-- 请求类型 -->
+	<xs:complexType name="requestType">
+		<xs:sequence>
+			<xs:element name="mappings" minOccurs="1" maxOccurs="1"><!-- 用于取值表达式 -->
+				<xs:complexType>
+					<xs:sequence  minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="field"          type="referFieldType"       minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="req_template" type="onlyTextType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- 响应类型 -->
+	<xs:complexType name="responseType">
+		<xs:sequence>
+			<xs:element name="mappings" minOccurs="1" maxOccurs="1"><!-- 用于赋值表达式 -->
+				<xs:complexType>
+					<xs:sequence  minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="field"          type="referFieldType"       minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="object"         type="objectType"           minOccurs="0" maxOccurs="unbounded"/> <!-- 适用response下的FORM节点 -->
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="rsp_wrap_class"   minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:attribute name="alias"  type="objectWrapClassType" use="required"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>

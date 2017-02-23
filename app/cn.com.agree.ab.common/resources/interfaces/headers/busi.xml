@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interfaces 
+	xmlns="http://www.w3school.com" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3school.com ../../xsd/lenovo_sop_header.xsd">
+	<!-- 别名映射，提供对别名和类全限定名之间的映射 -->
+	<alias-mappings>
+		<!-- domain取值inner和global,inner仅在接口内有效，global在全局有效,在不设置domain时默认为inner -->
+	</alias-mappings>
+	<!-- 元信息池 -->
+	<metadatas-pool>
+		<fixed-field name="JIAOYM" desc="交易代码" len="4" fill-style="right" class="String"/>
+		<fixed-field name="JIOYZM" desc="交易子码" len="2" fill-style="right" class="String"/>
+	</metadatas-pool>
+	<!-- 元信息池，提供对字段集中的定义 -->
+	<request>
+		<field ref="JIAOYM" alias="JIAOYM_REQ"/>
+		<field ref="JIOYZM" alias="JIOYZM_REQ"/>
+		<fixed-field name="JIOYMS" alias="JIOYMS_REQ" desc="交易模式" len="1" fill-style="right" class="String"/>
+		<fixed-field name="JIOYXH" alias="JIOYXH_REQ" desc="交易序号" len="4" fill-style="right" class="String" value-mode="constant" value="0"/>
+		<fixed-field name="COMMLN" alias="COMMLN_REQ" desc="本交易包长度" len="2" fill-style="right" class="String" value-mode="constant" value="0"/>
+		<fixed-field name="PNYIL1" alias="PNYIL1_REQ" desc="系统偏移1" len="2" fill-style="right" class="String" value-mode="constant" value="0"/>
+		<fixed-field name="PNYIL2" alias="PNYIL2_REQ" desc="系统偏移2" len="2" fill-style="right" class="String" value-mode="constant" value="0"/>
+		<fixed-field name="QANTLS" alias="QANTLS_REQ" desc="前台流水号" len="12" fill-style="right" class="String"/>
+		<fixed-field name="QANTRQ" alias="QANTRQ_REQ" desc="前台日期" len="8" fill-style="right" class="String"/>
+		<fixed-field name="SHOQGY" alias="SHOQGY_REQ" desc="授权柜员" len="8" fill-style="right" class="String"/>
+		<fixed-field name="SHOQMM" alias="SHOQMM_REQ" desc="授权密码" len="16" fill-style="right" class="String"/>
+		<fixed-field name="YWKABZ" alias="YWKABZ_REQ" desc="授权柜员有无卡标志" len="1" fill-style="right" class="String" value-mode="constant" value="0"/>
+		<fixed-field name="CZYNXH" alias="CZYNXH_REQ" desc="授权柜员卡序号" len="2" fill-style="right" class="String"/>
+	</request>
+	<response>
+	</response>
+	<exception>
+	</exception>
+</interfaces>

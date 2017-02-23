@@ -1,0 +1,13 @@
+# ºöÂÔÎÄ¼ş¼Ğ
+.metadata/
+.settings/
+target/
+classes/
+bin/
+*.counter.properties
+*.searchable
+*.contrib
+*.contrib.*
+runtime*/
+.copyarea.db
+
